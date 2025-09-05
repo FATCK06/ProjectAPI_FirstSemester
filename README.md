@@ -1,7 +1,3 @@
-Backlog do produto
-[Backlog.docx](https://github.com/user-attachments/files/22181593/Backlog.docx)
-
-
 # 📊 SJC Dados → Gráficos
 
 Projeto simples para coletar dados de **São José dos Campos (SJC)** e transformá-los em gráficos visuais.
@@ -9,6 +5,10 @@ Projeto simples para coletar dados de **São José dos Campos (SJC)** e transfor
 ![Badge](https://img.shields.io/badge/python-3.10%2B-blue) ![Badge](https://img.shields.io/badge/license-MIT-green)
 
 ---
+
+BACKLOG DO PRODUTO
+[Backlog.docx](https://github.com/user-attachments/files/22181954/Backlog.docx)
+
 
 ## 🚀 Objetivo
 
