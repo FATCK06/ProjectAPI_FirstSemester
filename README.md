@@ -1,3 +1,7 @@
+Backlog do produto
+[Backlog.docx](https://github.com/user-attachments/files/22181593/Backlog.docx)
+
+
 # 📊 SJC Dados → Gráficos
 
 Projeto simples para coletar dados de **São José dos Campos (SJC)** e transformá-los em gráficos visuais.
@@ -62,3 +66,5 @@ streamlit run src/app/dashboard.py
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
+Backlog do produto
+[Backlog.docx](https://github.com/user-attachments/files/22181593/Backlog.docx)
