@@ -6,7 +6,7 @@ Explique aqui qual é o problema/dor do parceiro que o projeto resolve.
 ---
 
 ## 📋 Backlog de Produto
-Acesse nosso Backlog abaixo:
+Acesse nosso Backlog:
 [📄Backlog PDF](misc/Backlog/BACKLOG%20(1).pdf)
 
 ---
