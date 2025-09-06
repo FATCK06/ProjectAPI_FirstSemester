@@ -1,70 +1,82 @@
-# 📊 SJC Dados → Gráficos
+# 📌 Título do Projeto
 
-Projeto simples para coletar dados de **São José dos Campos (SJC)** e transformá-los em gráficos visuais.
-
-![Badge](https://img.shields.io/badge/python-3.10%2B-blue) ![Badge](https://img.shields.io/badge/license-MIT-green)
-
----
-
-BACKLOG DO PRODUTO
-[Backlog.docx](https://github.com/user-attachments/files/22181954/Backlog.docx)
-
-
-## 🚀 Objetivo
-
-Facilitar a visualização de estatísticas públicas (IBGE, prefeitura, etc.) por meio de gráficos e dashboards.
+## 📝 Descrição do Desafio
+Explique aqui qual é o problema/dor do parceiro que o projeto resolve.
 
 ---
 
-## 🛠 Tecnologias
-
-* Python
-* Pandas
-* Matplotlib / Plotly
-* Streamlit
+## 📋 Backlog de Produto
+Acesse nosso Backlog abaixo:
+[📄 Abrir Backlog PDF](misc/Backlog/BACKLOG%20(1).pdf)
 
 ---
 
-## ⚙️ Instalação
+## 📆 Cronograma de Evolução do Projeto
+(Insira aqui uma imagem, tabela ou gráfico mostrando a evolução visual do projeto)
 
+---
+
+## 🔄 Sprints
+| Sprint | Período | Documentação | Vídeo do Incremento |
+|--------|----------|--------------|----------------------|
+| Sprint 1 | dd/mm - dd/mm | [Documentação](#) | [Vídeo](#) |
+| Sprint 2 | dd/mm - dd/mm | [Documentação](#) | [Vídeo](#) |
+| Sprint 3 | dd/mm - dd/mm | [Documentação](#) | [Vídeo](#) |
+
+---
+
+## 🛠 Tecnologias Utilizadas
+- Tecnologia 1  
+- Tecnologia 2  
+- Tecnologia 3  
+
+---
+
+## 🏗 Estrutura do Projeto
+Descreva aqui a organização das pastas e módulos principais.
+
+---
+
+## ▶️ Como Executar, Usar e Testar o Projeto
 ```bash
-git clone https://github.com/SEU_USUARIO/sjc-dados-graficos.git
-cd sjc-dados-graficos
-pip install -r requirements.txt
+# Comando para instalar dependências
+...
+
+# Comando para rodar o projeto
+...
+
+# Comando para rodar os testes
+...
 ```
 
 ---
 
-## ▶️ Como usar
+## 📂 Documentação
+- [Pasta de Documentação](#)
 
-Rodar o dashboard interativo:
-
-```bash
-streamlit run src/app/dashboard.py
-```
-
----
-
-## 📡 Fontes de dados
-
-* IBGE
-* Prefeitura de São José dos Campos
+### ✅ Checklist de DoR e DoD
+- [ ] DoR da Sprint 1  
+- [ ] DoD da Sprint 1  
+- [ ] DoR da Sprint 2  
+- [ ] DoD da Sprint 2  
 
 ---
 
-## 🤝 Contribuição
-
-1. Fork este repositório
-2. Crie sua branch (`git checkout -b feature/minha-feature`)
-3. Commit suas mudanças (`git commit -m 'Adicionei minha feature'`)
-4. Push para a branch (`git push origin feature/minha-feature`)
-5. Abra um Pull Request
+## 🌱 Estratégia de Branch
+Explique aqui como funcionará a estratégia de branches (ex: main, develop, feature/*, hotfix/*).
 
 ---
 
-## 🧾 Licença
+## 📖 Manuais
+- [Manual do Usuário](#)  
+- [Manual de Instalação](#)  
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+---
 
-Backlog do produto
-[Backlog.docx](https://github.com/user-attachments/files/22181593/Backlog.docx)
+## 👥 Equipe
+| Nome | Papel | GitHub | LinkedIn | Foto |
+|------|-------|--------|----------|------|
+| Nome 1 | Função | [GitHub](#) | [LinkedIn](#) | ![foto](#) |
+| Nome 2 | Função | [GitHub](#) | [LinkedIn](#) | ![foto](#) |
+
+---
