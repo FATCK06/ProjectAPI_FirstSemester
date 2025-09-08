@@ -19,8 +19,8 @@ A **Secretaria Municipal de Planejamento Urbano de São José dos Campos** enfre
 
 ## 📋 Backlog de Produto
 Acesse nosso Backlog:
-[📄Backlog PDF](misc/Backlog/BACKLOG%20(1).pdf)
----[BACKLOG.docx](https://github.com/user-attachments/files/22211632/BACKLOG.docx)
+-[📄Backlog PDF](misc/Backlog/BACKLOG%20(1).pdf)
+-[📄Backlog DOCX](https://github.com/user-attachments/files/22211632/BACKLOG.docx)
 
 ---
 
