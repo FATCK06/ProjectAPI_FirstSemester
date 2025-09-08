@@ -6,7 +6,7 @@
 
 ---
 
-## 📝 Dor do Cliente
+## 📝 Descrição
 
 A **Secretaria Municipal de Planejamento Urbano de São José dos Campos** enfrenta dificuldades para:
 
