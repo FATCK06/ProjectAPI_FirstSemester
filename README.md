@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="misc/Backlog/225861760.png" alt="Logo do Projeto" width="100"/>
+  <img src=".misc/img_template/225861760.png" alt="Logo do Projeto" width="100"/>
 </div>
 
 <h1 align="center">Projeto de Análise do Censo 2022 em São José dos Campos</h1>
@@ -22,7 +22,7 @@ Acesse nosso Backlog:
 
 -[BACKLOG.pdf](https://github.com/user-attachments/files/22233838/BACKLOG.pdf)
 
-||[BACKLOG.docx](https://github.com/user-attachments/files/22212336/BACKLOG.docx)
+-[BACKLOG.docx](https://github.com/user-attachments/files/22212336/BACKLOG.docx)
 
 ---
 
