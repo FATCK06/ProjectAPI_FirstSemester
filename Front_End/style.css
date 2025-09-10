@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 3.5px solid #FFBF00;
+}
+
+header nav ul {
+    display: flex;
+}
+
+.img_logo {
+    width: 60px;
+    display: block;
+}
+
+.logo_color {
+    width: 40px;
+    display: block;
+    justify-content: start;
+}
