@@ -49,3 +49,30 @@ nav ul li a:hover {
     display: block;
     justify-content: start;
 }
+
+banner-img {
+    width: 100vw;
+    height: 80vh; /* altura do banner, ajuste como quiser */
+    min-height: 220px;
+    max-height: 60vh;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-img img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0; /* 50% eixo X (horizontal), 0% eixo Y (vertical) */
+    display: block;
+    min-height: 220px;
+    max-height: 60vh;
+}
