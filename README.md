@@ -22,7 +22,8 @@ Acesse nosso Backlog:
 
 -[BACKLOG.pdf](https://github.com/user-attachments/files/22233838/BACKLOG.pdf)
 
--[BACKLOG.docx](https://github.com/user-attachments/files/22212336/BACKLOG.docx)
+-[BACKLOG.docx](https://github.com/user-attachments/files/22257230/BACKLOG.docx)
+
 
 ---
 
