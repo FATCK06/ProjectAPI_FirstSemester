@@ -7,36 +7,41 @@
     <title>Gráficos - Prefeitura de SJC</title>
 
     <!-- Linkando CSS -->
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="./css/footer.css">
+     <link rel="stylesheet" href="./css/header.css">
+     <link rel="stylesheet" href="./css/main.css">
+     <link rel="stylesheet" href="./css/body.css">
 
 </head>
 <body>
     <header>
+
+        <!-- Header: Logo -->
         <img class="logo_color" src="./img/logo2.png" alt="Logo-Color">
         <a href="#"><img class="img_logo" src="./img/logo.png" alt="Logo-Prefeitura"></a>
+
+         <!-- Header: Texto -->
+          <div>
+        <h2>Prefeitura</h2>
+        <h2>São José dos Campos</h2>
+        </div>
         
         <nav>
             <!-- Checkbox escondido -->
-            <input type="checkbox" id="check">
-            <!-- Botão hambúrguer -->
+            <!-- <input type="checkbox" id="check">
+            Botão hambúrguer
             <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
-            </label>
-
-        <!-- Checkbox escondido -->
+            </label>  -->
+        <!-- Navbar -->
         <ul>
-            <li>
-                <a href=""><h3>Home</h3></a>
-            </li>
-            <li>
-                <a href="#"><h3>Gráficos</h3></a>
-            </li>
-            <li>
-                <a href="#"><h3>Mapa Interativo</h3></a>
-            </li>
-            <li>
-                <a href="#"><h3>Relatório</h3></a>
-            </li>
+            <li><a href=""><p>Home</p></a></li>
+            <span>|</span>
+            <li><a href="#"><p>Gráficos</p></a></li>
+            <span>|</span>
+            <li><a href="#"><p>Mapa Interativo</p></a></li>
+            <span>|</span>
+            <li><a href="#"><p>Relatório</p></a></li>
         </ul>
         </nav>
 
@@ -44,8 +49,49 @@
 
         <!-- Banner de imagem abaixo do header -->
     <div class="banner-img">
-        <img src="./img/Banner.png" alt="Banner Prefeitura SJC">
+        <img src="./img/img_main.jpg" alt="Banner Prefeitura SJC">
     </div>
+    <br>
+
+    <!-- Graficos e Textos -->
+    <h3 style="text-align: center;">Resumos dos Gráficos</h3>
+    <br>
+    <div class="body_home">
+        <img src="./img/img_sex.jpg" alt="População_Sexo">
+        <img src="./img/img_dens_demo.jpg" alt="Densidade_Demografica">
+        <img src="./img/img_resid.jpg" alt="População_Residente">
+        <img src="./img/img_faix_etar.jpg" alt="Faixa_Etaria">
+        <img src="./img/img_trans_regiao.jpg" alt="Transito_Regiao">
+        <img src="./img/img_serv_regiao.jpg" alt="Serviço_Regiao">
+    </div>
+
+
+
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./img/Brasão_de_São_José_dos_Campos 1 1.svg" alt="Brasão de São José dos Campos">
+                <div class="footer-text">
+                    <h3>Prefeitura</h3>
+                    <p>São José dos Campos</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="#">Home</a>
+                <span>|</span>
+                <a href="#">Gráficos</a>
+                <span>|</span>
+                <a href="#">Mapa Interativo</a>
+                <span>|</span>
+                <a href="#">Relatório</a>
+            </nav>
+        </div>
+    </footer>
+
+
 
 </body>
 </html>
