@@ -10,8 +10,28 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* ===== header.css ===== */
-/* Header */
+/* ===== header1.css ===== */
+/* Header1 */
+.bannerassistida {
+    position: relative;
+    width: 100%;
+    height: 50px; /* ajuste conforme seu banner */
+    background-image: linear-gradient(#EC6608), url('fb576baa-850c-44ca-94fa-7ffb7ce711fa.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: white; /* deixa o texto visível */
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== header2.css ===== */
+/* Header2 */
 header {
     display: flex;
     justify-content: space-between; /* logo à esquerda, menu à direita */
@@ -100,6 +120,27 @@ nav ul span {
     max-height: 60vh;
 }
 
+/* Img dos Graficos */
+
+.body_home {
+    display: grid;
+    grid-template-columns: repeat(2,1fr); /* 2 colunas */
+    row-gap: 5px;
+    column-gap: 20px;
+    max-width: 600px;
+    margin: auto;
+    justify-content: center;
+    
+}
+
+.body_home img{
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 70px;
+}
+
+
 /* ===== footer.css ===== */
 /* Footer */
 .footer {
@@ -156,22 +197,4 @@ nav ul span {
 
 .footer-nav span {
     color: rgba(255,255,255,0.6);
-}
-
-.bannerassistida {
-    position: relative;
-    width: 100%;
-    height: 50px; /* ajuste conforme seu banner */
-    background-image: linear-gradient(rgb(255, 156, 7)), url('fb576baa-850c-44ca-94fa-7ffb7ce711fa.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-}
-
-.menu a {
-    color: white; /* deixa o texto visível */
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
 }
