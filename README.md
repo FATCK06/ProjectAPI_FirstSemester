@@ -5,6 +5,9 @@
 <h1 align="center">Projeto de Análise do Censo 2022 em São José dos Campos</h1>
 
 ---
+## 📝 Objetivos
+
+-Desenvolver uma plataforma, acessível e interativa que transforme os dados brutos do Censo 2022 em informações claras e dinâmicas, permitindo à Secretaria Municipal de Planejamento Urbano de São José dos Campos responder rapidamente às demandas da população, vereadores e imprensa, além de apoiar o planejamento urbano com painéis atualizados, filtros por região e faixa etária, gráficos e mapas interativos.
 
 ## 📝 Descrição
 
@@ -24,11 +27,6 @@ Acesse nosso Backlog:
 
 ---
 
-## 📆 Cronograma de Evolução do Projeto
-(Insira aqui uma imagem, tabela ou gráfico mostrando a evolução visual do projeto)
-
----
-
 ## 🔄 Sprints
 | Sprint | Período | Documentação | Vídeo do Incremento |
 |--------|----------|--------------|----------------------|
@@ -39,9 +37,12 @@ Acesse nosso Backlog:
 
 
 ## 🛠 Tecnologias Utilizadas
-- Tecnologia 1  
-- Tecnologia 2  
-- Tecnologia 3  
+- HTML 5
+- CSS 3
+- PYTHON
+- COLAB
+- MYSQL
+- FIGMA
 
 ---
 
@@ -66,17 +67,14 @@ Descreva aqui a organização das pastas e módulos principais.
 
 ## 📂 Documentação
 - [Pasta de Documentação](#)
+  
+---
 
 ### ✅ Checklist de DoR e DoD
 - [ ] DoR da Sprint 1  
 - [ ] DoD da Sprint 1  
 - [ ] DoR da Sprint 2  
 - [ ] DoD da Sprint 2  
-
----
-
-## 🌱 Estratégia de Branch
-Explique aqui como funcionará a estratégia de branches (ex: main, develop, feature/*, hotfix/*).
 
 ---
 
@@ -92,8 +90,8 @@ Explique aqui como funcionará a estratégia de branches (ex: main, develop, fea
 
 | Foto | Nome | Função | GitHub | LinkedIn |
 |------|------|--------|--------|----------|
-| <img src="https://media.licdn.com/dms/image/v2/C4E03AQFReXUOoOyjHA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1650547636367?e=1759968000&v=beta&t=kblvmQkGcVoF9lfCIjyvze0X8_yUqChfutqY99Yapro" width="100" style="border-radius:50%"/> | **Rodolfo** | 👑 P.O | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/teuusuario) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/teulinkedin) |
-| <img src="https://media.licdn.com/dms/image/v2/D4D03AQEw9VDUxHOlQw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678970447839?e=1759968000&v=beta&t=Iz89XeoehA2agv6u9c84DGcy9y-soKNy1gX97-ku6ps" width="100" style="border-radius:50%"/> | **Igor** | 🛡 Scrum Master | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/IgorMartins0729) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/igormrtns/) |
+| <img src="https://media.licdn.com/dms/image/v2/C4E03AQFReXUOoOyjHA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1650547636367?e=1759968000&v=beta&t=kblvmQkGcVoF9lfCIjyvze0X8_yUqChfutqY99Yapro" width="100" style="border-radius:50%"/> | **Rodolfo** |  P.O | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/teuusuario) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/teulinkedin) |
+| <img src="https://media.licdn.com/dms/image/v2/D4D03AQEw9VDUxHOlQw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678970447839?e=1759968000&v=beta&t=Iz89XeoehA2agv6u9c84DGcy9y-soKNy1gX97-ku6ps" width="100" style="border-radius:50%"/> | **Igor** |  Scrum Master | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/IgorMartins0729) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/igormrtns/) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQEgRUZ5NP9p1w/profile-displayphoto-shrink_200_200/B4DZVIEy.6HwBo-/0/1740670972598?e=1759968000&v=beta&t=e8Ajyf6tvcdJ9xjB2LWi0QCV_zkDcoKefN7N4wIF-9k" width="100" style="border-radius:50%"/> | **Samuel** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/Rlopes2005) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/samuel-lopes-6b2492287/) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQHVQXzKwONKBA/profile-displayphoto-scale_200_200/B4DZikgPkdH4AY-/0/1755106573326?e=1759968000&v=beta&t=oOz2GJK2COhKYDX4CmocIoiQDylHjndPVhfBrnEmNWM" width="100" style="border-radius:50%"/> | **Vinicius** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQHxY6tlM47X6Q/profile-displayphoto-shrink_200_200/B4DZSqctnjHIAY-/0/1738026442318?e=1759968000&v=beta&t=PRdLP1vJTsmyNQHp7IsTagG-JUF0zNLK-ViIBLIgMjI" width="100" style="border-radius:50%"/> | **Erich** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
