@@ -52,8 +52,7 @@ Descreva aqui a organização das pastas e módulos principais.
 ---
 
 ## 📖 Manuais
-- [Manual do Usuário](#)  
-- [Manual de Instalação](#)  
+- [Manual do Usuário](.misc/manual_usuario/manual_de_usuario.pdf)  
 
 ---
 
