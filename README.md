@@ -51,17 +51,9 @@ Descreva aqui a organização das pastas e módulos principais.
 
 ---
 
-## ▶️ Como Executar, Usar e Testar o Projeto
-```bash
-# Comando para instalar dependências
-...
-
-# Comando para rodar o projeto
-...
-
-# Comando para rodar os testes
-...
-```
+## 📖 Manuais
+- [Manual do Usuário](#)  
+- [Manual de Instalação](#)  
 
 ---
 
@@ -78,12 +70,6 @@ Descreva aqui a organização das pastas e módulos principais.
 
 ---
 
-## 📖 Manuais
-- [Manual do Usuário](#)  
-- [Manual de Instalação](#)  
-
----
-
 ## 👨‍💻 Equipe
 
 <div align="center">
@@ -95,7 +81,7 @@ Descreva aqui a organização das pastas e módulos principais.
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQEgRUZ5NP9p1w/profile-displayphoto-shrink_200_200/B4DZVIEy.6HwBo-/0/1740670972598?e=1759968000&v=beta&t=e8Ajyf6tvcdJ9xjB2LWi0QCV_zkDcoKefN7N4wIF-9k" width="100" style="border-radius:50%"/> | **Samuel** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/Rlopes2005) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/samuel-lopes-6b2492287/) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQHVQXzKwONKBA/profile-displayphoto-scale_200_200/B4DZikgPkdH4AY-/0/1755106573326?e=1759968000&v=beta&t=oOz2GJK2COhKYDX4CmocIoiQDylHjndPVhfBrnEmNWM" width="100" style="border-radius:50%"/> | **Vinicius** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQHxY6tlM47X6Q/profile-displayphoto-shrink_200_200/B4DZSqctnjHIAY-/0/1738026442318?e=1759968000&v=beta&t=PRdLP1vJTsmyNQHp7IsTagG-JUF0zNLK-ViIBLIgMjI" width="100" style="border-radius:50%"/> | **Erich** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
-| <img src="https://media.licdn.com/dms/image/v2/D4D03AQF9zCcA0dvJhg/profile-displayphoto-scale_200_200/B4DZiHX9jQH4AY-/0/1754617864010?e=1759968000&v=beta&t=LH7oMNUsQ9PHorOzOWq7xLcaxja5TyoNl_8qY_KIGPQ" width="100" style="border-radius:50%"/> | **Micael** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
+| <img src="https://media.licdn.com/dms/image/v2/D4D03AQF8jYo3KBYqGw/profile-displayphoto-scale_200_200/B4DZlVBddiJMAY-/0/1758068073252?e=1761782400&v=beta&t=hDkTPk5iG2TheioFYbeJ_36Fp9kY_P__YuHv1Pl3UTU" width="100" style="border-radius:50%"/> | **Micael** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQFHKZMMa7-XnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714172341713?e=1759968000&v=beta&t=CYluIwSDMOALIk73P45GzvwD8eUJ0dcRJ8mlizD8_5w" width="100" style="border-radius:50%"/> | **Isabelly** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
 | <img src="https://media.licdn.com/dms/image/v2/D4D03AQFt3nwhJx5QUA/profile-displayphoto-scale_200_200/B4DZiP8N4fG8AY-/0/1754761585646?e=1759968000&v=beta&t=oRGz9JAsNZH39bV-DDouVUCOrJeuBaO-WyAD1Nml8Ic" width="100" style="border-radius:50%"/> | **Patrick** | 💻 DEV | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/usuario3) | [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/usuario3) |
 
