@@ -57,7 +57,7 @@ Descreva aqui a organização das pastas e módulos principais.
 ---
 
 ## 📂 Documentação
-- [DOCUMENTACAO.docx](https://github.com/user-attachments/files/22537252/DOCUMENTACAO.docx)
+- [DOCUMENTAÇÃO](.misc/documentation/DOCUMENTACAO.pdf)
  
 ---
 
