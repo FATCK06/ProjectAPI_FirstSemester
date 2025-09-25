@@ -57,8 +57,8 @@ Descreva aqui a organização das pastas e módulos principais.
 ---
 
 ## 📂 Documentação
-- [Pasta de Documentação](#)
-  
+- [DOCUMENTACAO.docx](https://github.com/user-attachments/files/22537252/DOCUMENTACAO.docx)
+ 
 ---
 
 ### ✅ Checklist de DoR e DoD
