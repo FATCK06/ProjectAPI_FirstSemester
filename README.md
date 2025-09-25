@@ -30,7 +30,7 @@ Acesse nosso Backlog:
 ## 🔄 Sprints
 | Sprint | Período | Documentação | Vídeo do Incremento |
 |--------|----------|--------------|----------------------|
-| Sprint 1 | 28/08 - 01/10 | [Documentação](.misc/documentantion/DOCUMENTACAO.pdf) | [Vídeo](#) |
+| Sprint 1 | 28/08 - 01/10 | [Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [Vídeo](#) |
 | Sprint 2 | 02/10 - 29/10 | [Documentação](#) | [Vídeo](#) |
 | Sprint 3 | 30/10 - 26/11 | [Documentação](#) | [Vídeo](#) |
 
