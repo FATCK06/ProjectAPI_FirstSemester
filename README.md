@@ -45,7 +45,57 @@ Acesse nosso Backlog:
 ---
 
 ## 🏗 Estrutura do Projeto
-Descreva aqui a organização das pastas e módulos principais.
+
+```plaintext
+.
+├── .misc/                          # Arquivos auxiliares e documentação
+│   ├── Backlog/
+│   │   └── BACKLOG.pdf
+│   ├── documentation/
+│   │   └── DOCUMENTACAO.pdf
+│   ├── img_template/
+│   │   └── 225861760.png
+│   └── manual_usuario/
+│       ├── manual_de_usuario.docx
+│       └── manual_de_usuario.pdf
+
+├── Arquivos dados CSV/             # Dados brutos utilizados no projeto
+│   ├── RubyFox - Dados de 2022 - Idade e sexo.csv
+│   ├── RubyFox - Dados de 2022 - população e residencia.csv
+│   ├── densidade_demografica_sjc_2010.csv
+│   ├── faixa_etaria_homens_2010.csv
+│   ├── faixa_etaria_mulheres_2010.csv
+│   └── populacao_residente_sjc_2010.csv
+
+├── Back-End/                       # Recursos do back-end
+│   └── Delimitação da Zona de SJC/
+│       └── zonas_sjc_poligono.geojson
+
+├── Edit_Backlog/                   # Versões editáveis do backlog
+│   └── BACKLOG.docx
+
+├── Front-End/                      # Arquivos do front-end
+│   ├── img/                         # Imagens do projeto
+│   │   ├── 20250831_181119-fotor-enhance-20250918193859.jpg
+│   │   ├── Banner.png
+│   │   ├── Banner3.jpg
+│   │   ├── Banner3.png.jpg
+│   │   ├── Brasão_de_São_José_dos_Campos 1 1.svg
+│   │   ├── img_dens_demo.jpg
+│   │   ├── img_faix_etar.jpg
+│   │   ├── img_resid.jpg
+│   │   ├── img_serv_regiao.jpg
+│   │   ├── img_sex.jpg
+│   │   ├── img_trans_regiao.jpg
+│   │   ├── logo.png
+│   │   ├── logo2.png
+│   │   └── main_img.png
+│   ├── index.html                   # Página principal
+│   └── style.css                    # Estilos do site
+
+├── .gitignore                       # Arquivo de configuração do Git
+└── README.md                        # Documentação principal do projeto
+```
 
 ---
 
