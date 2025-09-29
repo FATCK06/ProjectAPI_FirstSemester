@@ -1,0 +1,931 @@
+# **Extraindo dados populacional de São José dos Campos:**
+
+Nosso Github: https://github.com/FATCK06/ProjectAPI_FirstSemester
+
+Desenvolvemos esse código dentro do Google Colab para apresentar dados do censo de IBGE dos anos 2010 e 2022, tais informações apresenta: População residente de SJC, Faixa etária, Densidade demográfica e População por sexo.
+
+# Instalando bibliotecas Python para o progama:
+
+Base de todo programa para funcionar.
+
+!pip install flask flask-ngrok pyngrok matplotlib plotly pandas sidrapy streamlit flask-cors geopandas geobr PyMySQL SQLAlchemy --upgrade
+
+# Inserindo Token Ngrok:
+
+Importante, não esquecer de rodar isso primeiro. É a chave para a criação do link do programa principal.
+
+!ngrok config add-authtoken 32Qi64IHMghRwMNkoFZu49G4xIF_yYjaH7aJoXcfiJEhhhCs
+
+# Programa principal com a página rodando no Flask juntamente com o Streamlit:
+
+Aqui é onde está o programa principal, que roda o Flask para a aplicação WEB, o Streamlit para a organização de gráficos. Após rodar, lá na saída de resultados dentro dessa célula de código logo abaixo, irá aparecer uma URL - ou link - para acessar o programa.
+
+**AVISO: APENAS UM COMPUTADOR CONECTADO AO WIFI CONSEGUE RODAR A APLICAÇÃO WEB DO NGROK**
+
+# ==============================================================================
+# PASSO 1: Instalando bibliotecas para assegurar que o programa rode (novamente).
+# ==============================================================================
+print("--- [1/7] Instalando bibliotecas (Flask, PyNgrok, Streamlit, Pandas, Plotly, SQLAlchemy, PyMySQL)... ---")
+import os
+os.system('pip install flask pyngrok streamlit pandas plotly sqlalchemy pymysql -q')
+print("Sucesso!")
+
+
+# ==============================================================================
+# PASSO 2: Importando as bibliotecas e configurando pastas para o Google Colab.
+# ==============================================================================
+import subprocess
+import time
+import atexit
+import socket
+from flask import Flask, render_template, url_for
+from pyngrok import ngrok
+import pandas as pd
+from sqlalchemy import create_engine
+import re
+
+print("\n--- [2/7] Criando a estrutura de pastas do projeto... ---")
+os.makedirs("templates", exist_ok=True)
+os.makedirs("static/css", exist_ok=True)
+print("Pastas 'templates' e 'static/css' prontas.")
+
+
+# ==============================================================================
+# PASSO 3: Conectando ao MySQL e carregando os dados dos CSVs.
+# ==============================================================================
+print("\n--- [3/7] Iniciando o carregamento dos dados para o MySQL... ---")
+
+# URLs dos arquivos CSV
+urls_csv = {
+    "faixa_etaria_mulheres_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/faixa_etaria_mulheres_2010.csv",
+    "faixa_etaria_homens_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/faixa_etaria_homens_2010.csv",
+    "populacao_residencia_2022": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/RubyFox%20-%20Dados%20de%202022%20-%20popula%C3%A7%C3%A3o%20e%20residencia.csv",
+    "idade_sexo_2022": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/RubyFox%20-%20Dados%20de%202022%20-%20Idade%20e%20sexo.csv",
+    "densidade_demografica_sjc_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/densidade_demografica_sjc_2010.csv",
+    "populacao_residente_sjc_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/populacao_residente_sjc_2010.csv",
+    "dados_educacao": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/dados_educacao.csv",
+    "ensino_superior_cursos": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/ensino_superior_cursos.csv",
+    "escolas_por_localizacao_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/escolas_por_localizacao_2010.csv",
+    "ideb_anos_iniciais_2017_2019_2021": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/ideb_anos_iniciais_2017_2019_2021.csv",
+    "ideb_evolucao": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/ideb_evolucao.csv",
+    "matriculas_por_ciclo": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/matriculas_por_ciclo.csv",
+    "matriculas_por_etapa": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/matriculas_por_etapa.csv",
+    "docentes_por_dependencia_2010": "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Arquivos%20dados%20CSV/docentes_por_dependencia_2010.csv"
+}
+
+# Configuração do MySQL
+user = 'rootsjc'
+password = 'fKEv/(.QpL~5=gfI'
+host = '34.95.246.81'
+database = 'dbsjcdados'
+
+connection_string = f'mysql+pymysql://{user}:{password}@{host}/{database}'
+try:
+    engine = create_engine(connection_string)
+    print("Conexão com o MySQL estabelecida com sucesso!")
+except Exception as e:
+    print(f"Erro ao conectar ao MySQL. Erro: {e}")
+    exit()
+
+# Função para padronizar os dados para que o programa leia
+def limpar_colunas(df):
+    cols = df.columns.str.strip().str.lower()
+    replacements = {
+        ' ': '_', 'ç': 'c', 'ã': 'a', 'õ': 'o', 'á': 'a', 'é': 'e',
+        'í': 'i', 'ó': 'o', 'ú': 'u', 'â': 'a', 'ê': 'e', 'î': 'i',
+        'ô': 'o', 'û': 'u'
+    }
+    for old, new in replacements.items():
+        cols = cols.str.replace(old, new, regex=False)
+    cols = cols.str.replace(r'[^a-z0-9_]', '', regex=True)
+    df.columns = cols
+    return df
+
+# Processando os arquivos CSV para o Banco de Dados
+for nome_tabela, url in urls_csv.items():
+    print(f"Processando '{nome_tabela}'...")
+    try:
+        df = pd.read_csv(url)
+        df = limpar_colunas(df.copy())
+
+        if nome_tabela == "populacao_residencia_2022":
+            if 'area_unidade_territorial' in df.columns:
+                df['area_unidade_territorial'] = df['area_unidade_territorial'].astype(str).str.replace(',', '', regex=False).astype(float)
+            if 'densidade' in df.columns:
+                df['densidade'] = df['densidade'].astype(str).str.replace(',', '.', regex=False).astype(float)
+
+        df.to_sql(nome_tabela, con=engine, if_exists='replace', index=False)
+        print(f"  -> SUCESSO: Tabela '{nome_tabela}' carregada no MySQL.")
+    except Exception as e:
+        print(f"  -> FALHA: Erro ao processar '{nome_tabela}'. Erro: {e}")
+print("\n--- Carregamento de dados no MySQL finalizado. ---")
+
+
+# ==============================================================================
+# PASSO 4: Criando o arquivo dashboard do Streamlit (gráficos)
+# ==============================================================================
+print("\n--- [4/7] Criando o arquivo do dashboard Streamlit (app_dashboard.py)... ---")
+
+streamlit_code = r"""
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+import re
+from sqlalchemy import create_engine
+
+st.set_page_config(
+    page_title="Dashboard Populacional e de Educação - SJC",
+    page_icon="📊",
+    layout="wide"
+)
+
+@st.cache_data
+def carregar_dados_do_sql(table_name):
+    user = 'rootsjc'
+    password = 'fKEv/(.QpL~5=gfI'
+    host = '34.95.246.81'
+    database = 'dbsjcdados'
+    try:
+        connection_string = f'mysql+pymysql://{user}:{password}@{host}/{database}'
+        _engine = create_engine(connection_string)
+        query = f"SELECT * FROM `{table_name}`"
+        df = pd.read_sql(query, con=_engine)
+        return df
+    except Exception as e:
+        st.error(f"Erro ao carregar dados da tabela '{table_name}': {e}")
+        return pd.DataFrame()
+
+def normalizar_faixa_etaria_2010(indicador):
+    indicador = str(indicador).lower()
+    if 'menos de 1' in indicador or '1 a 4' in indicador: return '0_a_4_anos'
+    if '5 a 9' in indicador: return '5_a_9_anos'
+    if '10 a 14' in indicador: return '10_a_14_anos'
+    if '15 a 19' in indicador: return '15_a_19_anos'
+    if '20 a 24' in indicador: return '20_a_24_anos'
+    if '25 a 29' in indicador: return '25_a_29_anos'
+    if '30 a 34' in indicador: return '30_a_34_anos'
+    if '35 a 39' in indicador: return '35_a_39_anos'
+    if '40 a 44' in indicador: return '40_a_44_anos'
+    if '45 a 49' in indicador: return '45_a_49_anos'
+    if '50 a 54' in indicador: return '50_a_54_anos'
+    if '55 a 59' in indicador: return '55_a_59_anos'
+    if '60 a 64' in indicador: return '60_a_64_anos'
+    if '65 a 69' in indicador: return '65_a_69_anos'
+    if '70 a 74' in indicador: return '70_a_74_anos'
+    if '75 a 79' in indicador: return '75_a_79_anos'
+    if '80 a 84' in indicador: return '80_a_84_anos'
+    if '85 a 89' in indicador: return '85_a_89_anos'
+    if '90 a 94' in indicador: return '90_a_94_anos'
+    if '95 a 99' in indicador: return '95_a_99_anos'
+    if '100 anos ou mais' in indicador: return '100_anos_ou_mais'
+    return None
+
+# Início do Dashboard
+st.title("📊 Análise Populacional e de Educação - São José dos Campos")
+
+# Carrega todos os dataframes do MySQL
+df_pop_2022 = carregar_dados_do_sql("populacao_residencia_2022")
+df_pop_res_2010 = carregar_dados_do_sql("populacao_residente_sjc_2010")
+df_idade_sexo_2022 = carregar_dados_do_sql("idade_sexo_2022")
+df_faixa_h_2010 = carregar_dados_do_sql("faixa_etaria_homens_2010")
+df_faixa_m_2010 = carregar_dados_do_sql("faixa_etaria_mulheres_2010")
+df_densidade_2010 = carregar_dados_do_sql("densidade_demografica_sjc_2010")
+df_matriculas_etapa = carregar_dados_do_sql("matriculas_por_etapa")
+df_ideb_2017_2021 = carregar_dados_do_sql("ideb_anos_iniciais_2017_2019_2021")
+df_docentes_2010 = carregar_dados_do_sql("docentes_por_dependencia_2010")
+
+# Seção de População
+st.header("Análise Populacional")
+if not df_pop_2022.empty and not df_pop_res_2010.empty:
+    total_correto_2022 = df_pop_2022["populacao_residente"].iloc[0]
+    total_correto_2010 = df_pop_res_2010.loc[df_pop_res_2010['indicador'] == 'População residente', 'valor'].iloc[0]
+
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        homens_2022_raw = df_idade_sexo_2022[df_idade_sexo_2022["tipo"].str.contains("homens", na=False, case=False)]["total"].sum()
+        mulheres_2022_raw = df_idade_sexo_2022[df_idade_sexo_2022["tipo"].str.contains("mulheres", na=False, case=False)]["total"].sum()
+        soma_raw_2022 = homens_2022_raw + mulheres_2022_raw
+        homens_2022 = (homens_2022_raw / soma_raw_2022) * total_correto_2022 if soma_raw_2022 > 0 else 0
+        mulheres_2022 = (mulheres_2022_raw / soma_raw_2022) * total_correto_2022 if soma_raw_2022 > 0 else 0
+        df_sexo_2022 = pd.DataFrame([{"Sexo": "Homens", "População": homens_2022, "Ano": "2022"}, {"Sexo": "Mulheres", "População": mulheres_2022, "Ano": "2022"}])
+        homens_2010_raw = df_faixa_h_2010['valor'].sum()
+        mulheres_2010_raw = df_faixa_m_2010['valor'].sum()
+        soma_raw_2010 = homens_2010_raw + mulheres_2010_raw
+        homens_2010 = (homens_2010_raw / soma_raw_2010) * total_correto_2010 if soma_raw_2010 > 0 else 0
+        mulheres_2010 = (mulheres_2010_raw / soma_raw_2010) * total_correto_2010 if soma_raw_2010 > 0 else 0
+        df_sexo_2010 = pd.DataFrame([{"Sexo": "Homens", "População": homens_2010, "Ano": "2010"}, {"Sexo": "Mulheres", "População": mulheres_2010, "Ano": "2010"}])
+        df_sexo_final = pd.concat([df_sexo_2010, df_sexo_2022], ignore_index=True)
+        fig1 = px.bar(df_sexo_final, x="Sexo", y="População", color="Ano", barmode="group", title="População por Sexo (2010 vs 2022)", text_auto='.3s')
+        fig1.update_traces(textangle=0, textposition="outside")
+        st.plotly_chart(fig1, use_container_width=True)
+    with col2:
+        st.metric("População Total 2022", f"{int(total_correto_2022):,}".replace(",", "."))
+        st.metric("População Total 2010", f"{int(total_correto_2010):,}".replace(",", "."))
+        if total_correto_2010 > 0:
+            st.metric("Crescimento Populacional", f"{(total_correto_2022/total_correto_2010 - 1):.2%}")
+
+    st.subheader("Evolução da Densidade Demográfica")
+    data_densidade = []
+    if "densidade_demografica_habkm2" in df_densidade_2010.columns:
+        densidade_2010 = df_densidade_2010["densidade_demografica_habkm2"].iloc[0]
+        data_densidade.append({"Ano": "2010", "Densidade (hab/km²)": densidade_2010})
+    if "densidade" in df_pop_2022.columns:
+        densidade_2022 = df_pop_2022["densidade"].iloc[0]
+        data_densidade.append({"Ano": "2022", "Densidade (hab/km²)": densidade_2022})
+    if data_densidade:
+        df_densidade = pd.DataFrame(data_densidade)
+        fig2 = px.line(df_densidade, x="Ano", y="Densidade (hab/km²)", markers=True, title="Evolução da Densidade Demográfica")
+        fig2.update_traces(text=df_densidade["Densidade (hab/km²)"].round(2), textposition="top center")
+        st.plotly_chart(fig2, use_container_width=True)
+
+    st.subheader("Distribuição da População por Faixa Etária")
+    faixas_2022 = [c for c in df_idade_sexo_2022.columns if c not in ["ano", "tipo", "total", "id"]]
+    faixa_total_2022_raw = df_idade_sexo_2022.loc[df_idade_sexo_2022["tipo"].str.lower().isin(["homens", "mulheres"]), faixas_2022].sum(numeric_only=True).fillna(0)
+    fator_2022 = total_correto_2022 / faixa_total_2022_raw.sum() if faixa_total_2022_raw.sum() > 0 else 1
+    faixa_total_2022 = (faixa_total_2022_raw * fator_2022).reset_index(); faixa_total_2022.columns = ["faixa_etaria", "populacao"]; faixa_total_2022["ano"] = "2022"
+    df_faixa_2010_combined = pd.concat([df_faixa_h_2010, df_faixa_m_2010])
+    df_faixa_2010_combined['faixa_normalizada'] = df_faixa_2010_combined['indicador'].apply(normalizar_faixa_etaria_2010)
+    df_faixa_2010_combined = df_faixa_2010_combined.dropna(subset=['faixa_normalizada'])
+    faixa_total_2010_raw = df_faixa_2010_combined.groupby('faixa_normalizada')['valor'].sum()
+    fator_2010 = total_correto_2010 / faixa_total_2010_raw.sum() if faixa_total_2010_raw.sum() > 0 else 1
+    faixa_total_2010 = (faixa_total_2010_raw * fator_2010).reset_index(); faixa_total_2010.columns = ["faixa_etaria", "populacao"]; faixa_total_2010["ano"] = "2010"
+    faixa_df_final = pd.concat([faixa_total_2010, faixa_total_2022], ignore_index=True)
+    ordem_faixas = sorted(faixa_df_final['faixa_etaria'].unique(), key=lambda x: int(re.search(r'\d+', x).group(0)) if re.search(r'\d+', x) else float('inf'))
+    faixa_df_final['faixa_etaria_display'] = faixa_df_final['faixa_etaria'].str.replace('_', ' ').str.replace(' a ', '-').str.replace(' anos', '').str.replace(' ou mais', '+')
+    ordem_display = [d.replace('_', ' ').replace(' a ', '-').replace(' anos', '').replace(' ou mais', '+') for d in ordem_faixas]
+    if not faixa_df_final.empty:
+        fig3 = px.bar(faixa_df_final, x="faixa_etaria_display", y="populacao", color="ano", barmode="group", title="População por Faixa Etária (2010 vs 2022)",
+                      category_orders={"faixa_etaria_display": ordem_display},
+                      labels={"faixa_etaria_display": "Faixa Etária", "populacao": "População"},
+                      text_auto='.3s')
+        fig3.update_xaxes(tickangle=45)
+        fig3.update_traces(textangle=0, textposition="outside")
+        st.plotly_chart(fig3, use_container_width=True)
+
+# Seção de Educação
+st.header("Análise de Educação")
+if not df_matriculas_etapa.empty and not df_ideb_2017_2021.empty and not df_docentes_2010.empty:
+    st.subheader("Matrículas por Etapa de Ensino")
+    fig4 = px.pie(df_matriculas_etapa, values="quantidade_de_alunos", names="etapa_de_ensino", title="Distribuição de Matrículas por Etapa de Ensino")
+    st.plotly_chart(fig4, use_container_width=True)
+
+    st.subheader("Evolução do IDEB (2017-2021)")
+    fig5 = px.line(df_ideb_2017_2021, x="ano", y="ideb_anos_iniciais", markers=True, title="IDEB - Anos Iniciais do Ensino Fundamental")
+    fig5.update_traces(text=df_ideb_2017_2021["ideb_anos_iniciais"].round(2), textposition="top center")
+    st.plotly_chart(fig5, use_container_width=True)
+
+    st.subheader("Docentes por Dependência Administrativa")
+    fig6 = px.bar(df_docentes_2010, x="dependencia_administrativa", y="docentes_total", title="Docentes por Dependência Administrativa (2010)", text_auto=True)
+    fig6.update_traces(textposition='outside')
+    st.plotly_chart(fig6, use_container_width=True)
+else:
+    st.warning("Não foi possível carregar os dados de educação do banco de dados.")
+"""
+STREAMLIT_APP_FILE = "app_dashboard.py"
+with open(STREAMLIT_APP_FILE, "w", encoding="utf-8") as f:
+    f.write(streamlit_code)
+print(f"Arquivo '{STREAMLIT_APP_FILE}' criado com sucesso.")
+
+
+# ==============================================================================
+# PASSO 5: Cria os arquivos do site para o Flask (A home e os botões para gráficos)
+# ==============================================================================
+print("\n--- [5/7] Criando os arquivos HTML e CSS para o portal Flask... ---")
+base_url = "https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Front-End/img/"
+graficos_info = {
+    1: {"titulo": "População por Sexo", "imagem": f"{base_url}img_sex.jpg?raw=true"},
+    2: {"titulo": "Densidade Demográfica", "imagem": f"{base_url}img_dens_demo.jpg?raw=true"},
+    3: {"titulo": "População Residente", "imagem": f"{base_url}img_resid.jpg?raw=true"},
+    4: {"titulo": "Faixa Etária", "imagem": f"{base_url}img_faix_etar.jpg?raw=true"},
+    5: {"titulo": "Trânsito por Região", "imagem": f"{base_url}img_trans_regiao.jpg?raw=true"},
+    6: {"titulo": "Serviço por Região", "imagem": f"{base_url}img_serv_regiao.jpg?raw=true"}
+}
+
+
+layout_html = """
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }} - Prefeitura de SJC</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="bannerassistida">
+            <nav class="menu">
+                <a href="#">Acesso à informação</a>
+                <a href="#">Transparência SJC</a>
+                <a href="#">Legislação</a>
+                <a href="#">Ouvidoria</a>
+            </nav>
+        </div>
+        <header>
+            <img class="logo_color" src="https://github.com/FATCK06/ProjectAPI_FirstSemester/blob/main/Front-End/img/logo2.png?raw=true" alt="Logo Colorido SJC">
+            <a href="{{ url_for('home') }}"><img class="img_logo" src="https://github.com/FATCK06/ProjectAPI_FirstSemester/blob/main/Front-End/img/logo.png?raw=true" alt="Logo da Prefeitura"></a>
+            <div>
+                <h2>Prefeitura</h2>
+                <h2>São José dos Campos</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}"><p>Home</p></a></li>
+                    <span>|</span>
+                    <li><a href="#"><p>Gráficos</p></a></li>
+                    <span>|</span>
+                    <li><a href="#"><p>Mapa Interativo</p></a></li>
+                    <span>|</span>
+                    <li><a href="#"><p>Relatório</p></a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}{% endblock %}
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/refs/heads/main/Front-End/img/Bras%C3%A3o_de_S%C3%A3o_Jos%C3%A9_dos_Campos%201%201.svg" alt="Brasão de São José dos Campos">
+                    <div class="footer-text">
+                        <h3>Prefeitura</h3>
+                        <p>São José dos Campos</p>
+                    </div>
+                </div>
+                <nav class="footer-nav">
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <span>|</span>
+                    <a href="#">Gráficos</a>
+                    <span>|</span>
+                    <a href="#">Mapa Interativo</a>
+                    <span>|</span>
+                    <a href="#">Relatório</a>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>
+"""
+with open("templates/layout.html", "w", encoding="utf-8") as f:
+    f.write(layout_html)
+
+index_html = """
+{% extends "layout.html" %}
+{% block content %}
+    <div class="banner-img">
+        <img src="https://github.com/FATCK06/ProjectAPI_FirstSemester/blob/main/Front-End/img/20250831_181119-fotor-enhance-20250918193859.jpg?raw=true" alt="Banner da cidade de São José dos Campos">
+    </div>
+    <main>
+        <div class="titulo-container">
+            <h1>
+                Resumo dos Gráficos
+                <span class="titulo-sublinhado"></span>
+            </h1>
+        </div>
+        <div class="body_home">
+            {% for id, info in graficos.items() %}
+                <a href="{{ url_for('pagina_grafico', grafico_id=id) }}" class="container_home">
+                    <img src="{{ info.imagem }}" alt="Dashboard sobre {{ info.titulo }}">
+                    <h1>{{ info.titulo }}</h1>
+                </a>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
+"""
+with open("templates/index.html", "w", encoding="utf-8") as f:
+    f.write(index_html)
+
+grafico_html = """
+{% extends "layout.html" %}
+{% block content %}
+    <main>
+        <div class="titulo-container">
+            <h1>
+                Dashboard Interativo
+                <span class="titulo-sublinhado"></span>
+            </h1>
+        </div>
+        <div class="content-container">
+            <p>Explore os dados de São José dos Campos nos gráficos interativos abaixo.</p>
+            <div id="loader-container" class="loader-container">
+                <div class="loader"></div>
+                <p class="loader-text">Carregando dashboard, por favor aguarde...</p>
+            </div>
+            <iframe id="streamlit-iframe" width="100%" height="2400" style="border:none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); visibility: hidden;"></iframe>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const iframe = document.getElementById('streamlit-iframe');
+            const loader = document.getElementById('loader-container');
+            const streamlitUrl = "{{ streamlit_public_url }}";
+
+            iframe.onload = function() {
+                console.log("Dashboard carregado.");
+                loader.style.display = 'none';
+                iframe.style.visibility = 'visible';
+            };
+
+            iframe.src = streamlitUrl;
+        });
+    </script>
+{% endblock %}
+"""
+with open("templates/grafico.html", "w", encoding="utf-8") as f:
+    f.write(grafico_html)
+
+css_content = """
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+    background-color: #fdfdfd;
+}
+.bannerassistida {
+    width: 100%;
+    height: 50px;
+    background-color: #EC6608;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.menu a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    border-bottom: 4px solid #FFBF00;
+    background-color: white;
+}
+header div h2 {
+    margin: 0;
+    line-height: 1.1;
+}
+.img_logo {
+    width: 60px;
+    height: auto;
+}
+.logo_color {
+    width: 40px;
+    height: auto;
+}
+header nav {
+    margin-left: auto;
+}
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+header nav ul li a {
+    color: black;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+header nav ul li a:hover {
+    color: #EC6608;
+}
+header nav ul span {
+    color: #ccc;
+}
+.banner-img {
+    width: 100vw;
+    height: 60vh;
+    min-height: 220px
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+}
+.banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.91);
+    display: block;
+}
+main {
+    padding: 20px;
+    min-height: 60vh;
+}
+.titulo-container {
+    text-align: center;
+    margin: 30px 0 40px 0;
+}
+.titulo-container h1 {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 2.2rem;
+    color: #333;
+}
+.titulo-sublinhado {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 120%;
+    height: 4px;
+    background-color: #EC6608;
+    display: block;
+}
+.body_home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+.container_home {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    color: white;
+}
+.container_home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+.container_home:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+.container_home h1 {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+.content-container {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.content-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    flex-direction: column;
+    gap: 20px;
+}
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0d57a5;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+}
+.loader-text {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 500;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.footer {
+    background-color: #0d57a5;
+    color: white;
+    padding: 25px 40px;
+    margin-top: 50px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.footer-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.footer-text h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+.footer-text p {
+    margin: 0;
+    font-size: 12px;
+}
+.footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.footer-nav a {
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+.footer-nav a:hover {
+    color: #FFBF00;
+}
+.footer-nav span {
+    color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    header nav {
+        margin-left: 0;
+    }
+    .titulo-container h1 {
+        font-size: 1.8rem;
+    }
+    .container_home h1 {
+        font-size: 1.5rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+"""
+with open("static/css/style.css", "w", encoding="utf-8") as f:
+    f.write(css_content)
+print("Arquivos do portal Flask criados com sucesso.")
+
+
+# ==============================================================================
+# PASSO 6: Inicia os servidores (Flask e Streamlit)
+# ==============================================================================
+print("\n--- [6/7] Configurando e iniciando os servidores... ---")
+
+# verifica se a porta está em uso aqui
+def is_port_in_use(port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex(("localhost", port)) == 0
+
+# Configuração de porta e token
+NGROK_AUTH_TOKEN = "32Qi64IHMghRwMNkoFZu49G4xIF_yYjaH7aJoXcfiJEhhhCs"
+FLASK_PORT = 5000
+STREAMLIT_PORT = 8501
+streamlit_public_url = None
+
+# Verificaçao do Token
+if not NGROK_AUTH_TOKEN or "COLE_SEU_TOKEN_AQUI" in NGROK_AUTH_TOKEN:
+    print("ATENÇÃO: Token do Ngrok não configurado. Sessão limitada.")
+else:
+    ngrok.set_auth_token(NGROK_AUTH_TOKEN)
+    print("Sucesso! Token de autenticação do Ngrok configurado.")
+
+# Streamlit em segundo plano
+print(f"🚀 Iniciando o Streamlit em background na porta {STREAMLIT_PORT}...")
+proc = subprocess.Popen(
+    ["streamlit", "run", STREAMLIT_APP_FILE, "--server.port", str(STREAMLIT_PORT), "--server.headless", "true"],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE,
+    text=True,
+    encoding="utf-8"
+)
+atexit.register(proc.kill)
+
+# Aguarda o streamlit iniciar nesse código abaixo
+print("Aguardando o servidor do Streamlit ficar pronto...")
+start_time = time.time()
+while not is_port_in_use(STREAMLIT_PORT):
+    time.sleep(0.5)
+    if time.time() - start_time > 120:
+        print("Erro: Streamlit demorou muito para iniciar.", proc.stderr.read())
+        exit()
+print("Servidor Streamlit iniciado.")
+
+
+# ==============================================================================
+# PASSO 7: Configura o Flask e inicia o Token do Ngrok
+# ==============================================================================
+print("\n--- [7/7] Criando URLs públicas e iniciando a aplicação WEB ---")
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template('index.html', title="Home", graficos=graficos_info)
+
+@app.route("/grafico/<int:grafico_id>")
+def pagina_grafico(grafico_id):
+    global streamlit_public_url
+    grafico = graficos_info.get(grafico_id)
+    if not grafico:
+        return "Gráfico não encontrado", 404
+    return render_template('grafico.html', title=grafico["titulo"], streamlit_public_url=streamlit_public_url)
+
+# Inicia os túneis da aplicação
+try:
+    ngrok.kill()
+
+    # Streamlit
+    streamlit_tunnel = ngrok.connect(STREAMLIT_PORT, name="streamlit")
+    streamlit_public_url = streamlit_tunnel.public_url
+    print(f"Túnel do Streamlit está pronto em: {streamlit_public_url}")
+
+    # Flask
+    flask_tunnel = ngrok.connect(FLASK_PORT, name="flask")
+    print("\n" + "=" * 60)
+    print(f"Aplicação principal no ar")
+    print(f"ACESSE POR ESTA URL: {flask_tunnel.public_url}")
+    print("=" * 60)
+
+    app.run(port=FLASK_PORT)
+
+except Exception as e:
+    print(f"Erro ao iniciar Ngrok ou Flask: {e}")
+
+
+
+# Geração do mapa interativo da cidade de São José dos Campos:
+
+Aqui é onde o mapa interativo de SJC será inserida no Google Colab. Logo logo será inserido na home page
+
+Geração do mapa interativo - Versão Final
+
+import folium
+import re
+import json
+import geopandas as gpd
+from shapely.geometry import mapping
+from branca.element import Element
+import unicodedata
+import difflib
+
+# ---------- Extraindo GeoJson via URL RAW ----------
+url_geojson = 'https://raw.githubusercontent.com/FATCK06/ProjectAPI_FirstSemester/main/Delimita%C3%A7%C3%A3o%20da%20Zona%20de%20SJC/zonas_sjc_poligono.geojson'
+
+# Seus dados (população e área aproximada — usados para população/densidade)
+zonas = {
+    "Zona Norte": {'populacao': 100000, 'area': 23.35},
+    "Zona Sul": {'populacao': 90000, 'area': 32.69},
+    "Zona Leste": {'populacao': 120000, 'area': 28.02},
+    "Zona Centro": {'populacao': 72401, 'area': 18.68},
+    "Zona Oeste": {'populacao': 64482, 'area': 25.66},
+    "Zona Sudeste": {'populacao': 62541, 'area': 30.37}
+}
+
+cores = {
+    "Zona Norte": "#e41a1c",
+    "Zona Sul": "#377eb8",
+    "Zona Leste": "#4daf4a",
+    "Zona Oeste": "#984ea3",
+    "Zona Centro": "#ff7f00",
+    "Zona Sudeste": "#ffff33"
+}
+
+# ---------- Carregar GeoJSON ----------
+gdf = gpd.read_file(url_geojson)
+
+if gdf.crs is None:
+    gdf.set_crs(epsg=4326, inplace=True)
+
+# Reprojetar para UTM (métrico) para cálculo preciso de áreas/centroides
+gdf_proj = gdf.to_crs(epsg=32723)
+
+# Calcula área em km² a partir da geometria reprojetada
+gdf['area_km2'] = gdf_proj.geometry.area / 1e6
+
+# Calcula centroides em coordenadas WGS84 (lat/lon) para posicionar marcadores
+centroids_proj = gdf_proj.centroid  # em UTM
+centroids_wgs = centroids_proj.to_crs(epsg=4326)
+gdf['centroid_lat'] = centroids_wgs.y
+gdf['centroid_lon'] = centroids_wgs.x
+
+# Preparar mapeamento de nomes com normalização para fuzzy match
+def norm(s):
+    if s is None:
+        return ""
+    s = str(s)
+    # remove acentos com unicodedata, converte para ascii
+    s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode('ascii')
+    s = s.lower()
+    s = re.sub(r'[^a-z0-9]+', ' ', s).strip()
+    return s
+
+zonas_norm_map = { norm(k): k for k in zonas.keys() }
+
+# ---------- Criar mapa ----------
+map_center = [gdf['centroid_lat'].mean(), gdf['centroid_lon'].mean()]
+mapa = folium.Map(location=map_center, zoom_start=12, control_scale=True)
+
+# Guardar funções JS para alternar polígonos
+js_functions = []
+
+# Iterar features e criar markers/popups + JS toggle
+for idx, row in gdf.iterrows():
+    nome_raw = row.get('nome', '')  # nome vindo do GeoJSON
+    nome_norm = norm(nome_raw)
+
+    # fuzzy match para encontrar a chave mais próxima em zonas, se existir
+    possible = difflib.get_close_matches(nome_norm, list(zonas_norm_map.keys()), n=1, cutoff=0.6)
+    matched_key = zonas_norm_map[possible[0]] if possible else None
+
+    populacao = zonas[matched_key]['populacao'] if matched_key else None
+    # área a exibir: calculada a partir da geometria (mais precisa)
+    area_calc = float(row['area_km2'])
+    densidade = (populacao / area_calc) if (populacao and area_calc>0) else None
+    cor = cores.get(matched_key if matched_key else nome_raw, "#3388ff")
+
+    # centroid for marker
+    lat_c = float(row['centroid_lat'])
+    lon_c = float(row['centroid_lon'])
+
+    # safe JS id
+    safe = re.sub(r'\W+', '_', nome_raw if nome_raw else f'zona_{idx}')
+
+    # converter geometria para GeoJSON literal (objeto JS)
+    geom_json = json.dumps(mapping(row.geometry))
+
+    # JS function (toggle) — usa L.geoJSON com o objeto GeoJSON
+    js_fn = f"""
+function togglePoly_{safe}(){{
+  var map = {mapa.get_name()};
+  if(window['poly_{safe}']){{
+    map.removeLayer(window['poly_{safe}']);
+    window['poly_{safe}'] = null;
+  }} else {{
+    window['poly_{safe}'] = L.geoJSON({geom_json}, {{
+      style: function (feature) {{
+        return {{color: '{cor}', weight: 2, fillOpacity: 0.45}};
+      }}
+    }}).addTo(map);
+    try {{ map.fitBounds(window['poly_{safe}'].getBounds()); }} catch(e){{}}
+  }}
+}}
+"""
+    js_functions.append(js_fn)
+
+    # montar popup com valores formatados e fallback '---'
+    pop_str = f"{int(populacao):,}".replace(',', '.') if populacao else "---"
+    area_str = f"{area_calc:.2f}"
+    dens_str = f"{densidade:.2f} hab/km²" if densidade else "---"
+
+    popup_html = f"""
+    <div style="font-family: Arial, sans-serif; font-size:13px;">
+      <b>{nome_raw if nome_raw else 'Sem nome'}</b><br>
+      População: {pop_str}<br>
+      Área: {area_str} km²<br>
+      Densidade: {dens_str}<br>
+      <a href="#" onclick="togglePoly_{safe}();return false;">Mostrar/Esconder área</a>
+    </div>
+    """
+
+    folium.Marker(
+        location=[lat_c, lon_c],
+        popup=folium.Popup(popup_html, max_width=330),
+        icon=folium.Icon(color="red", icon="info-sign")
+    ).add_to(mapa)
+
+# injeta o JS no HTML do mapa
+script_all = "<script>\n" + "\n".join(js_functions) + "\n</script>"
+mapa.get_root().html.add_child(Element(script_all))
+
+# Exibir mapa
+mapa
