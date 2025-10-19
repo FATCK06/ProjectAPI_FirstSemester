@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gráficos - Prefeitura de SJC</title>
+
+    <!-- Linkando CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo_total">
+            <a href="#"><img src="./img/img_logo-removebg-preview.png" alt="Logo"></a>
+            <h2>SJC DADOS ↗</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="">
+                        <p>Home</p>
+                    </a></li>
+                <li><a href="#">
+                        <p>Gráficos</p>
+                    </a></li>
+                <li><a href="#">
+                        <p>Mapa Interativo</p>
+                    </a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero-section">
+    <div class="content">
+        <h1>Análise do Censo 2022 em São José dos Campos</h1>
+        <p>Desenvolver uma plataforma acessível e interativa que transforme os dados brutos do Censo 2022 em informações visuais e intuitivas.</p>
+        <button>Ver mais ⭣</button>
+    </div>
+
+    <div class="content_img">
+        <img src="./img/Sem_título-removebg-preview.png" alt="">
+        <img src="./img/bandeira-municipal.jpg" alt="">
+    </div>
+
+    <div class="background-svg">
+        <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Camada de baixo (azul claro) -->
+            <path fill="#3CA7DF" d="M0,550 C480,500 960,350 1440,250 L1440,600 L0,600 Z"></path>
+
+            <!-- Camada de cima (azul escuro) -->
+            <path fill="#0654A5" d="M0,530 C480,480 960,330 1440,230 L1440,600 L0,600 Z"></path>
+        </svg>
+    </div>
+</section>
+
+
+    <!-- HOME -->
+
+    <div class="body_home">
+        <div class="container_home">
+            <a href="./graficos.html">
+                <img src="./img/img_sex.jpg" alt="População_Sexo">
+                <h1>População por Sexo</h1>
+            </a>
+        </div>
+
+        <div class="container_home">
+            <img src="./img/img_dens_demo.jpg" alt="Densidade_Demografica">
+            <h1>Densidade Demográfica</h1>
+        </div>
+
+        <div class="container_home">
+            <img src="./img/img_resid.jpg" alt="População_Residente">
+            <h1>População Residente</h1>
+        </div>
+
+        <div class="container_home">
+            <img src="./img/img_faix_etar.jpg" alt="Faixa_Etaria">
+            <h1>Faixa Etária</h1>
+        </div>
+
+        <div class="container_home">
+            <img src="./img/img_trans_regiao.jpg" alt="Transito_Regiao">
+            <h1>Trânsito por Região</h1>
+        </div>
+
+        <div class="container_home">
+            <img src="./img/img_serv_regiao.jpg" alt="Serviço_Regiao">
+            <h1>Serviço por Região</h1>
+        </div>
+    </div>
+
+    </div>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./img/Brasão_de_São_José_dos_Campos 1 1.svg" alt="Brasão de São José dos Campos">
+                <div class="footer-text">
+                    <h3>Prefeitura</h3>
+                    <p>São José dos Campos</p>
+                </div>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#">Home</a>
+                <span>|</span>
+                <a href="#">Gráficos</a>
+                <span>|</span>
+                <a href="#">Mapa Interativo</a>
+                <span>|</span>
+                <a href="#">Relatório</a>
+            </nav>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
+
+
+
+/* ===== main.css ===== */
+
+/* ===== Importando Fontes ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+/* ===== Reset/Padrão Global ===== */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Cal Sans", sans-serif;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between; /* logo à esquerda, menu à direita */
+    align-items: center;
+    padding: 10px;
+}
+
+/* Logo  */
+.logo_total {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_total img {
+    padding-left: 20px;
+    width: 70px;
+    height: auto;
+    margin-top: 9px;
+}
+
+.logo_total h2 {
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+/*  Navbar  */
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-right: 50px;
+}
+
+nav ul li a {
+    color: rgb(31, 29, 29); /* mantém preto */
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFBF00; /* amarelo no hover, igual footer */
+}
+
+nav ul span {
+    color: #999; /* cinza claro parecido com o footer */
+    padding: 0 0 0 10px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    overflow: hidden;
+    background-color: #f0f2f5;
+}
+
+/* ===== Texto ===== */
+.hero-section .content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    max-width: 50%;
+    color: #fff;
+    transform: translateY(-40px); /* 🔹 sobe o texto */
+}
+
+.hero-section .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0654A5;
+}
+
+.hero-section .content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.hero-section .content button {
+    background-color: #FFBF00;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-section .content button:hover {
+    background-color: #c99e1e;
+}
+
+/* ===== Imagens ===== */
+.hero-section .content_img {
+    position: relative;
+    flex: 1.2; /* 🔹 dá um pouco mais de espaço pro bloco de imagens */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* 🔹 permite que a imagem ultrapasse o limite */
+}
+
+/* Imagem principal */
+.hero-section .content_img img:first-child {
+    width: 30%;
+    position: relative;
+    z-index: 2;
+    transform: translateX(8%) scale(1.05);
+    animation: revelar 2s ease-out forwards;
+    clip-path: inset(100% 0 0 0); /* começa invisível, cortado em cima */
+}
+
+@keyframes revelar {
+  from {
+    clip-path: inset(100% 0 0 0); /* cortado completamente */
+  }
+  to {
+    clip-path: inset(0 0 0 0); /* revela tudo de baixo pra cima */
+  }
+}
+
+/* Imagem menor sobreposta */
+.hero-section .content_img img:last-child {
+    width: 50%;
+    max-width: none; /* 🔹 garante que a imagem possa expandir livremente */
+    border-radius: 10px;
+    position: absolute;
+    bottom: 60%;
+    right: 8%;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+/* ===== Ondas de fundo ===== */
+.background-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* ===== Imagens ===== */
+.hero-section .content_img {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-section .content_img img:first-child {
+    width: 80%;
+    right: 2%;
+    z-index: 3;
+}
+
+.hero-section .content_img img:last-child {
+    width: 30%;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* ===== Ondas de fundo ===== */
+.background-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* ===== HOME PRINCIPAL ===== */
+.body_home {
+    display: grid;
+    grid-template-columns: repeat(2,1fr); /* 2 colunas */
+    row-gap: 30px;
+    column-gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    justify-content: center;
+}
+
+.container_home {
+    position: relative;
+    display: inline-block; /* garante que o container tenha o tamanho da imagem */
+    overflow: hidden;
+}
+
+.container_home img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    filter: grayscale(100%); /* deixa preto e branco */
+    transition: filter 0.3s ease; /* efeito suave */
+}
+
+.body_home img:hover {
+    filter: grayscale(0%);
+}
+
+.container_home h1 {
+    position: absolute;
+    bottom: 10px; /* canto inferior */
+    left: 3%;  /* canto esquerdo */
+    transform: none;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    text-align: left;
+    pointer-events: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: #0d57a5; /* Azul do header */
+    color: white;
+    padding: 20px 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo img {
+    width: 60px;
+    height: auto;
+}
+
+.footer-text h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footer-text p {
+    margin: 0;
+    font-size: 10px;
+}
+
+.footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffd700; /* Amarelo de destaque no hover */
+}
+
+.footer-nav span {
+    color: rgba(255,255,255,0.6);
+}

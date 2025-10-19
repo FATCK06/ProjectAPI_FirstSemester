@@ -4,66 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Aplicação para Prefeitura de SJC</title>
 
-    <title>Gráficos - Prefeitura de SJC</title>
-
-    <!-- Linkando CSS -->
+    <!-- ======= CSS ======= -->
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body>
 
+    <!-- ========================================= -->
+    <!-- 🔶 Header Superior - Links de Acesso Rápido -->
+    <!-- ========================================= -->
+    <div class="bannerassistida">
+        <nav class="menu">
+            <a href="#">Acesso à informação</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Transparência SJC</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Legislação</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Ouvidoria</a>
+        </nav>
+    </div>
+
+    <!-- ========================= -->
+    <!-- 🟨 Header Principal -->
+    <!-- ========================= -->
     <header>
 
-        <div class="logo_total">
-            <a href="#"><img src="./img/img_logo-removebg-preview.png" alt="Logo"></a>
-            <h2>SJC DADOS ↗</h2>
+        <!-- 🔸 Logo + Nome da Prefeitura -->
+        <div class="header-left">
+            <img class="logo_color" src="./img/logo2.png" alt="Logo-Color">
+            <a href="#"><img class="img_logo" src="./img/logo.png" alt="Logo-Prefeitura"></a>
+            <div class="texto-prefeitura">
+                <h2>Prefeitura</h2>
+                <h2>São José dos Campos</h2>
+            </div>
         </div>
 
+        <!-- 🔸 Menu de Navegação Principal -->
         <nav>
             <ul>
-                <li><a href="">
-                        <p>Home</p>
-                    </a></li>
-                <li><a href="#">
-                        <p>Gráficos</p>
-                    </a></li>
-                <li><a href="#">
-                        <p>Mapa Interativo</p>
-                    </a></li>
+                <li><a href="#"><p>Home</p></a></li>
+                <span>|</span>
+                <li><a href="./graficos.html"><p>Gráficos</p></a></li>
+                <span>|</span>
+                <li><a href="#"><p>Mapa Interativo</p></a></li>
+                <span>|</span>
+                <li><a href="#"><p>Relatório</p></a></li>
             </ul>
         </nav>
 
     </header>
 
-    <section class="hero-section">
-    <div class="content">
-        <h1>Análise do Censo 2022 em São José dos Campos</h1>
-        <p>Desenvolver uma plataforma acessível e interativa que transforme os dados brutos do Censo 2022 em informações visuais e intuitivas.</p>
-        <button>Ver mais ⭣</button>
+    <!-- ========================= -->
+    <!-- 📸 Banner Principal -->
+    <!-- ========================= -->
+    <div class="banner-img">
+        <img src="./img/20250831_181119-fotor-enhance-20250918193859.jpg" alt="Banner Prefeitura SJC">
     </div>
 
-    <div class="content_img">
-        <img src="./img/Sem_título-removebg-preview.png" alt="">
-        <img src="./img/bandeira-municipal.jpg" alt="">
+    <br>
+
+    <!-- ========================= -->
+    <!-- 📊 Título da Seção Principal -->
+    <!-- ========================= -->
+    <div style="text-align: center;">
+        <h1 style="display: inline-block; position: relative; padding-bottom: 5px;">
+            Resumo dos Gráficos
+            <span
+                style="position: absolute; left: -10px; bottom: 0; width: calc(50px + 283px); height: 4px; background-color: #EC6608; display: block;">
+            </span>
+        </h1>
     </div>
 
-    <div class="background-svg">
-        <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg">
-            <!-- Camada de baixo (azul claro) -->
-            <path fill="#3CA7DF" d="M0,550 C480,500 960,350 1440,250 L1440,600 L0,600 Z"></path>
+    <br>
 
-            <!-- Camada de cima (azul escuro) -->
-            <path fill="#0654A5" d="M0,530 C480,480 960,330 1440,230 L1440,600 L0,600 Z"></path>
-        </svg>
-    </div>
-</section>
-
-
-    <!-- HOME -->
-
+    <!-- ========================= -->
+    <!-- 📈 Cards de Gráficos -->
+    <!-- ========================= -->
     <div class="body_home">
+        <!-- 🔹 Gráfico 1 -->
         <div class="container_home">
             <a href="./graficos.html">
                 <img src="./img/img_sex.jpg" alt="População_Sexo">
@@ -71,47 +92,65 @@
             </a>
         </div>
 
+        <!-- 🔹 Gráfico 2 -->
         <div class="container_home">
-            <img src="./img/img_dens_demo.jpg" alt="Densidade_Demografica">
-            <h1>Densidade Demográfica</h1>
+            <a href="./graficos.html">
+                <img src="./img/img_dens_demo.jpg" alt="Densidade_Demografica">
+                <h1>Densidade Demográfica</h1>
+            </a>
         </div>
 
+        <!-- 🔹 Gráfico 3 -->
         <div class="container_home">
-            <img src="./img/img_resid.jpg" alt="População_Residente">
-            <h1>População Residente</h1>
+            <a href="./graficos.html">
+                <img src="./img/img_resid.jpg" alt="População_Residente">
+                <h1>População Residente</h1>
+            </a>
         </div>
 
+        <!-- 🔹 Gráfico 4 -->
         <div class="container_home">
-            <img src="./img/img_faix_etar.jpg" alt="Faixa_Etaria">
-            <h1>Faixa Etária</h1>
+            <a href="./graficos.html">
+                <img src="./img/img_faix_etar.jpg" alt="Faixa_Etaria">
+                <h1>Faixa Etária</h1>
+            </a>
         </div>
 
+        <!-- 🔹 Gráfico 5 -->
         <div class="container_home">
-            <img src="./img/img_trans_regiao.jpg" alt="Transito_Regiao">
-            <h1>Trânsito por Região</h1>
+            <a href="./graficos.html">
+                <img src="./img/img_trans_regiao.jpg" alt="Transito_Regiao">
+                <h1>Trânsito por Região</h1>
+            </a>
         </div>
 
+        <!-- 🔹 Gráfico 6 -->
         <div class="container_home">
-            <img src="./img/img_serv_regiao.jpg" alt="Serviço_Regiao">
-            <h1>Serviço por Região</h1>
+            <a href="./graficos.html">
+                <img src="./img/img_serv_regiao.jpg" alt="Serviço_Regiao">
+                <h1>Serviço por Região</h1>
+            </a>
         </div>
     </div>
 
-    </div>
-    <br>
-    <br>
+    <br><br>
 
-    <!-- Footer -->
+    <!-- ========================= -->
+    <!-- ⚫ Footer -->
+    <!-- ========================= -->
     <footer class="footer">
         <div class="footer-container">
+
+            <!-- 🔸 Logo + Nome no Rodapé -->
             <div class="footer-logo">
                 <img src="./img/Brasão_de_São_José_dos_Campos 1 1.svg" alt="Brasão de São José dos Campos">
                 <div class="footer-text">
-                    <h3>Prefeitura</h3>
-                    <p>São José dos Campos</p>
+                    <h2>Prefeitura</h2>
+                    <h2>São José dos Campos</h2>
                 </div>
             </div>
 
+            <!-- 🔸 Navegação no Rodapé -->
             <nav class="footer-nav">
                 <a href="#">Home</a>
                 <span>|</span>
@@ -121,10 +160,9 @@
                 <span>|</span>
                 <a href="#">Relatório</a>
             </nav>
+
         </div>
     </footer>
-
-
 
 </body>
 

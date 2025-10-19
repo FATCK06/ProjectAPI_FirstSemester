@@ -8,27 +8,122 @@
     <title>Gráficos - Prefeitura de SJC</title>
 
     <!-- Linkando CSS -->
-    <link rel="stylesheet" href="./css/graficos.css">
-
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
 <body>
 
+    <!-- ========================================= -->
+    <!-- 🔶 Header Superior - Links de Acesso Rápido -->
+    <!-- ========================================= -->
+    <div class="bannerassistida">
+        <nav class="menu">
+            <a href="#">Acesso à informação</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Transparência SJC</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Legislação</a>
+            <span style="color: #D9D9D9;">|</span>
+            <a href="#">Ouvidoria</a>
+        </nav>
+    </div>
+
+    <!-- ========================= -->
+    <!-- 🟨 Header Principal -->
+    <!-- ========================= -->
     <header>
 
-        <div class="dropdown">
-            <div class="dropdown-select">
-                <span class="select">Selecione:</span>
-                <img src="" alt="">
-            </div>
-            <div class="dropdown-list">
-                <div class="dropdown-list_item">Masculino</div>
-                <div class="dropdown-list_item">Feminino</div>
-                <div class="dropdown-list_item">Boyceta</div>
+        <!-- 🔸 Logo + Nome da Prefeitura -->
+        <div class="header-left">
+            <img class="logo_color" src="./img/logo2.png" alt="Logo-Color">
+            <a href="./index.html"><img class="img_logo" src="./img/logo.png" alt="Logo-Prefeitura"></a>
+            <div class="texto-prefeitura">
+                <h2>Prefeitura</h2>
+                <h2>São José dos Campos</h2>
             </div>
         </div>
-        
+
+        <!-- 🔸 Menu de Navegação Principal -->
+        <nav>
+            <ul>
+                <li><a href="./index.html">
+                        <p>Home</p>
+                    </a></li>
+                <span>|</span>
+                <li><a href="./graficos.html">
+                        <p>Gráficos</p>
+                    </a></li>
+                <span>|</span>
+                <li><a href="#">
+                        <p>Mapa Interativo</p>
+                    </a></li>
+                <span>|</span>
+                <li><a href="#">
+                        <p>Relatório</p>
+                    </a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- HOME -->
+    <br>
+    <div style="text-align: center;">
+        <h1 style="display: inline-block; position: relative; padding-bottom: 5px;">
+            Dashboard Interativo
+            <span
+                style="position: absolute; left: -10px; bottom: 0; width: calc(50px + 283px); height: 4px; background-color: #EC6608; display: block;"></span>
+        </h1>
+    </div>
+    <br>
+
+    <!-- ============================== -->
+    <!-- 🟢 Filtro: Seleção de Gênero  -->
+    <!-- ============================== -->
+    <div class="filtro-genero">
+        <label for="genero">Selecionar Gênero:</label>
+        <select id="genero" name="genero">
+            <option value="">-- Selecione --</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./img/Brasão_de_São_José_dos_Campos 1 1.svg" alt="Brasão de São José dos Campos">
+                <div class="footer-text">
+                    <h3>Prefeitura</h3>
+                    <p>São José dos Campos</p>
+                </div>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#">Home</a>
+                <span>|</span>
+                <a href="#">Gráficos</a>
+                <span>|</span>
+                <a href="#">Mapa Interativo</a>
+                <span>|</span>
+                <a href="#">Relatório</a>
+            </nav>
+        </div>
+    </footer>
+
+<!-- ============================== -->
+<!-- 🧠 JavaScript: Lógica do Filtro -->
+<!-- ============================== -->
+<script>
+    document.getElementById('genero').addEventListener('change', function () {
+        const generoSelecionado = this.value;
+        console.log("Gênero selecionado:", generoSelecionado);
+        // 🔄 Aqui você pode atualizar um gráfico ou conteúdo dinâmico
+    });
+</script>
 
 </body>
 
