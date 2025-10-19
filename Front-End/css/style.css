@@ -1,90 +1,61 @@
 /* ===== main.css ===== */
-/* Importando Fontes */
 
-/* Deixando Padrão */
+/* ===== Importando Fontes ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+/* ===== Reset/Padrão Global ===== */
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Cal Sans", sans-serif;
 }
 
-/* ===== header1.css ===== */
-/* Header1 */
-.bannerassistida {
-    position: relative;
-    width: 100%;
-    height: 50px; /* ajuste conforme seu banner */
-    background-image: linear-gradient(#EC6608), url('fb576baa-850c-44ca-94fa-7ffb7ce711fa.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-}
-
-.menu a {
-    color: white; /* deixa o texto visível */
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ===== header2.css ===== */
-/* Header2 */
+/* ===== HEADER ===== */
 header {
     display: flex;
     justify-content: space-between; /* logo à esquerda, menu à direita */
     align-items: center;
-    padding: 30px 30px 5px 1px;
-    border-bottom: 4px solid #FFBF00; /* detalhe amarelo */
-    background-color: transparent; /* mantém transparente */
+    padding: 10px;
 }
 
-/* Container do logo (principal + colorido) */
-.header-logo {
+/* Logo  */
+.logo_total {
     display: flex;
     align-items: center;
-    gap: 10px; /* espaço entre os dois logos */
+    gap: 10px;
 }
 
-/* Img Logo da Prefeitura */
-.img_logo {
-    width: 60px;
-    display: block;
+.logo_total img {
+    padding-left: 20px;
+    width: 70px;
+    height: auto;
+    margin-top: 9px;
 }
 
-/* Img Logo Cores */
-.logo_color {
-    width: 40px;
-    display: block;
+.logo_total h2 {
+    font-weight: 800;
+    letter-spacing: 3px;
 }
 
-/* Navbar */
-nav {
-    margin-left: auto;
-}
-
+/*  Navbar  */
 nav ul {
     display: flex;
     align-items: center;
-    gap: 15px; /* mesmo padrão do footer */
-}
-
-nav ul li {
-    margin: 0;
-    font-size: 14px;
+    gap: 50px;
+    margin-right: 50px;
 }
 
 nav ul li a {
-    color: black; /* mantém preto */
+    color: rgb(31, 29, 29); /* mantém preto */
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ffd700; /* amarelo no hover, igual footer */
+    color: #FFBF00; /* amarelo no hover, igual footer */
 }
 
 nav ul span {
@@ -92,29 +63,145 @@ nav ul span {
     padding: 0 0 0 10px;
 }
 
-/* Banner */
-.banner-img {
-    width: 100vw;           /* ocupa toda a largura da tela */
-    height: 60vh;           /* altura do banner, ajuste como quiser */
-    min-height: 220px;      /* altura mínima */
-    max-height: 80vh;       /* altura máxima */
+/* ===== HERO SECTION ===== */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
     overflow: hidden;
-    display: flex;          
-    align-items: center;    
+    background-color: #f0f2f5;
+}
+
+/* ===== Texto ===== */
+.hero-section .content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    max-width: 50%;
+    color: #fff;
+    transform: translateY(-40px); /* 🔹 sobe o texto */
+}
+
+.hero-section .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0654A5;
+}
+
+.hero-section .content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.hero-section .content button {
+    background-color: #FFBF00;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-section .content button:hover {
+    background-color: #c99e1e;
+}
+
+/* ===== Imagens ===== */
+.hero-section .content_img {
+    position: relative;
+    flex: 1.2; /* 🔹 dá um pouco mais de espaço pro bloco de imagens */
+    display: flex;
     justify-content: center;
-    background: #eee;       /* cor de fundo caso a imagem não carregue */
+    align-items: center;
+    overflow: visible; /* 🔹 permite que a imagem ultrapasse o limite */
 }
 
-.banner-img img {
-    width: 100%;           /* ocupa a largura do container */
-    height: 100%;          /* ocupa a altura do container */
-    object-fit: cover;     /* mantém proporção e cobre todo o container */
-    filter: brightness(0.91); /* escurece levemente */
-    display: block;
+/* Imagem principal */
+.hero-section .content_img img:first-child {
+    width: 30%;
+    position: relative;
+    z-index: 2;
+    transform: translateX(8%) scale(1.05);
+    animation: revelar 2s ease-out forwards;
+    clip-path: inset(100% 0 0 0); /* começa invisível, cortado em cima */
 }
 
-/* HOME PRINCIPAL */
+@keyframes revelar {
+  from {
+    clip-path: inset(100% 0 0 0); /* cortado completamente */
+  }
+  to {
+    clip-path: inset(0 0 0 0); /* revela tudo de baixo pra cima */
+  }
+}
 
+/* Imagem menor sobreposta */
+.hero-section .content_img img:last-child {
+    width: 50%;
+    max-width: none; /* 🔹 garante que a imagem possa expandir livremente */
+    border-radius: 10px;
+    position: absolute;
+    bottom: 60%;
+    right: 8%;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+/* ===== Ondas de fundo ===== */
+.background-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* ===== Imagens ===== */
+.hero-section .content_img {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-section .content_img img:first-child {
+    width: 80%;
+    right: 2%;
+    z-index: 3;
+}
+
+.hero-section .content_img img:last-child {
+    width: 30%;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* ===== Ondas de fundo ===== */
+.background-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* ===== HOME PRINCIPAL ===== */
 .body_home {
     display: grid;
     grid-template-columns: repeat(2,1fr); /* 2 colunas */
@@ -140,9 +227,8 @@ nav ul span {
 }
 
 .body_home img:hover {
-    filter: grayscale(0%)
+    filter: grayscale(0%);
 }
-
 
 .container_home h1 {
     position: absolute;
@@ -157,8 +243,7 @@ nav ul span {
     pointer-events: none;
 }
 
-/* ===== footer.css ===== */
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
     background-color: #0d57a5; /* Azul do header */
     color: white;
