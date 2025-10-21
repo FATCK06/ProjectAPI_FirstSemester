@@ -1,0 +1,9 @@
+Nivel_Instrucao,Percentual_2010_Estimado,Percentual_2022_Estimado,Tendencia,Caracteristicas,Observacoes
+Sem_Instrucao,3.00,2.14,Reducao,Diminuiu 28.67% - Campanhas de alfabetizacao efetivas,Menor taxa de analfabetismo da regiao
+Fundamental_Incompleto,25.00,22.00,Reducao,Populacao mais velha com escolaridade interrompida,Reducao natural por faixa etaria
+Fundamental_Completo,18.00,20.00,Crescimento,Aumento na conclusao do ensino basico,Politicas de permanencia escolar
+Medio_Incompleto,8.00,7.00,Reducao,Menor evasao escolar - Programas de retencao,Melhorias na qualidade do ensino
+Medio_Completo,30.00,32.00,Crescimento,Maior acesso e conclusao do ensino medio,Principal nivel educacional da populacao
+Superior_Incompleto,5.00,5.50,Estavel,Ingresso no ensino superior mantido,Acesso facilitado por universidades locais
+Superior_Completo,11.00,13.50,Crescimento,Aumento de graduados - Polo tecnologico,ITA UNIFESP UNESP Fatec influenciam
+IDHM_Educacao,0.807,0.820,Crescimento,Indice elevado - Entre os melhores do Brasil,12o melhor do estado de SP em 2010

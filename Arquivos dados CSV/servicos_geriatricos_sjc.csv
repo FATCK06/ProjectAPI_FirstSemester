@@ -1,0 +1,11 @@
+Tipo_Servico,Quantidade,Regiao_Localizacao,Capacidade_Atendimento,Cobertura_Estimada_Idosos,Status_Atual,Necessidade_Expansao
+UBS_Unidades_Basicas_Saude,50,Distribuidas por todas regioes,Atendimento geral + programas hipertensao diabetes,83647 idosos cadastrados,Operando,Ampliar protocolos geriatricos
+Casa_do_Idoso,4,Sul Leste Norte Centro,Mais de 50 atividades - Atendimento preventivo,Aproximadamente 5000 idosos ativos,Operando em capacidade,Criar 2 novas: Oeste e Sudeste
+Centro_de_Dia,4,Integrado as Casas do Idoso,Atendimento diurno semidependentes - 5 refeicoes,Aproximadamente 400 idosos/dia,Operando,Avaliar demanda nas novas regioes
+Servico_Protecao_Domiciliar,4,Equipes distribuidas,Visitas domiciliares - Vulnerabilidade social,Demanda variavel,Operando,Manter e expandir conforme crescimento
+Hospital_com_Geriatria,1,Reger Hospital Regional,Atendimento especializado geriatrico,Referencia regional,Operando,Adequado para demanda atual
+Atendimento_Geriatrico_Privado,Multiplos,Diversas regioes,Consultorios particulares,Classes A e B,Adequado,Mercado privado atende demanda
+Programa_Hipertensao_Diabetes,50,Todas UBS,Grupos especificos nas UBS,Milhares de idosos,Operando,Essencial para prevencao
+Vacinacao_Idosos,50,Todas UBS,Campanhas especificas + rotina,Cobertura ampla,Operando,Manter campanhas
+UPA_Pronto_Atendimento,5,Distribuidas estrategicamente,Atendimento urgencia 24h,Atende todas idades,Operando,Criar 1 adicional na Zona Oeste
+Farmacia_Popular,50,Integradas as UBS,Distribuicao medicamentos gratuitos,Alta demanda idosos,Operando,Manter estoque adequado
