@@ -1,78 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gráficos - Prefeitura de SJC</title>
+    <title>Dados demográficos | Prefeitura São José dos Campos</title>
 
-    <!-- Linkando CSS -->
-     <link rel="stylesheet" href="./css/style.css">
-
+    <link rel="icon" type="image/png" href="./img/logo/icon.ico">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- Header superior com links -->
-    <div class="bannerassistida">
-    <nav class="menu">
-        <a href="#">Acesso à informação</a>
-        <a href="#">Transparência SJC</a>
-        <a href="#">Legislação</a>
-        <a href="#">Ouvidoria</a>
-    </nav>
-</div>
 
-<header>
-
-        <!-- Header Inferior: Logo -->
-        <img class="logo_color" src="./img/logo2.png" alt="Logo-Color">
-        <a href="#"><img class="img_logo" src="./img/logo.png" alt="Logo-Prefeitura"></a>
-
-         <!-- Header Inferior: Texto -->
-          <div>
-        <h2>Prefeitura</h2>
-        <h2>São José dos Campos</h2>
-        </div>
-        
-        <nav>
-            <!-- Checkbox escondido -->
-            <!-- <input type="checkbox" id="check">
-            Botão hambúrguer
-            <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-            </label>  -->
-        <!-- Navbar -->
-        <ul>
-            <li><a href=""><p>Home</p></a></li>
-            <span>|</span>
-            <li><a href="#"><p>Gráficos</p></a></li>
-            <span>|</span>
-            <li><a href="#"><p>Mapa Interativo</p></a></li>
-            <span>|</span>
-            <li><a href="#"><p>Relatório</p></a></li>
-        </ul>
+    <div class="stripeAssistance">
+        <nav class="contention-header">
+            <ul>
+                <li>
+                    <a href="https://www.sjc.sp.gov.br/servicos/governanca/portal-da-transparencia/" target="_blank" rel="noopener noreferrer">Transparência São José dos Campos</a>
+                </li>
+                <li>
+                    <a href="https://servicos.sjc.sp.gov.br/Legislacao" target="_blank" rel="noopener noreferrer">Legislação</a>
+                </li>
+                <li>
+                    <a href="https://www.sjc.sp.gov.br/servicos/governanca/portal-da-transparencia/ouvidoria/" target="_blank" rel="noopener noreferrer">Ouvidoria</a>
+                </li>
+            </ul>
         </nav>
+    </div>
 
-    </header>
-
-<!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="./img/Brasão_de_São_José_dos_Campos 1 1.svg" alt="Brasão de São José dos Campos">
-                <div class="footer-text">
-                    <h3>Prefeitura</h3>
-                    <p>São José dos Campos</p>
-                </div>
+    <header class=".contention-header">
+        <div class="header">
+            <div>
+                <picture class="logo">
+                    <a href="/"><img src="./img/logo/brasao_de_armas.svg" alt="Brasão de armas da Prefeitura de São José dos Campos"></a>
+                </picture>
+                <h1>
+                    <span class="line-1">Prefeitura de </span>
+                    <span class="line-2">São José dos Campos</span>
+                </h1>
             </div>
             
-            <nav class="footer-nav">
-                <a href="#">Home</a>
-                <span>|</span>
-                <a href="#">Gráficos</a>
-                <span>|</span>
-                <a href="#">Mapa Interativo</a>
-                <span>|</span>
-                <a href="#">Relatório</a>
+            <nav>
+                <ul>
+                    <li><a href=""><p>Início</p></a></li>
+                    <li><a href="#"><p>Gráficos</p></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-mobile">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#"><picture><img src="./img/icons/home.svg" alt=""></picture></a>
+                        <p>Início</p>
+                    </li>
+                    <li>
+                        <a href="#"><picture><img src="./img/icons/graphic.svg" alt=""></picture></a>
+                        <p>Gráficos</p>
+                    </li>
+                    <li>
+                        <a href="#"><picture><img src="./img/icons/maps.svg" alt=""></picture></a>
+                        <p>Mapas</p>
+                    </li>
+                    <li>
+                        <a href="#"><picture><img src="./img/icons/transparence.svg" alt=""></picture></a>
+                        <p>Ajuda</p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Gráfico da população por sexo</h1>
+         <!-- Embed o gráfico interativo com o leitor de tela -->
+        <iframe src="grafico_interativo_acessivel.html" width="800" height="600" title="Gráfico Interativo Acessível"></iframe>
+    </main>
+
+    <footer class=".contention-footer">
+        <div class="footer">
+            <div>
+                <picture class="logo">
+                    <a href="/"><img src="./img/logo/brasao_de_armas.svg" alt="Brasão de armas da Prefeitura de São José dos Campos"></a>
+                </picture>
+                <h1>
+                    <span class="line-1">Prefeitura de </span>
+                    <span class="line-2">São José dos Campos</span>
+                </h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href=""><p>Início</p></a></li>
+                    <li><a href="#"><p>Gráficos</p></a></li>
+                </ul>
             </nav>
         </div>
     </footer>

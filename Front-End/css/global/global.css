@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    /*font-size: 16px;*/
+}
+
+.contention {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.contention-header {
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 920px) {
+    .contention {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
