@@ -1,0 +1,17 @@
+main h1 {
+
+    text-align: center;
+    max-width: 20ch;
+    text-align: center;
+    padding-bottom: 40px;
+    position: relative;
+    display: grid;
+}
+
+main h1::after {
+    content: "";
+    max-width: 100%;
+    height: 4px;
+    background-color: var(--color-support-yellow);
+    margin-top: 8px;
+}

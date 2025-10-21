@@ -10,3 +10,5 @@
 @import url('../css/main/main.css');
 @import url('../css/main/section.css');
 
+/* Item de gráfico da página */
+@import url('../css/graphic/graphic.css');
