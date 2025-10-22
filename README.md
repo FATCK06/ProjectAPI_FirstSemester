@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".misc/img_template/225861760.png" alt="Logo do Projeto" width="100"/>
+  <img src=".misc/img_template/logo/225861760.png" alt="Logo do Projeto" width="100"/>
 </div>
 
 <h1 align="center">Projeto de Análise do Censo 2022 em São José dos Campos</h1>
@@ -110,10 +110,7 @@ Acesse nosso Backlog:
 ---
 
 ### ✅ Checklist de DoR e DoD
-- [ ] DoR da Sprint 1  
-- [ ] DoD da Sprint 1  
-- [ ] DoR da Sprint 2  
-- [ ] DoD da Sprint 2  
+-[DOR E DOD](.misc/documento_dod_dor.pdf)
 
 ---
 
