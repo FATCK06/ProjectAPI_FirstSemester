@@ -23,7 +23,18 @@ A **Secretaria Municipal de Planejamento Urbano de São José dos Campos** enfre
 ## 📋 Backlog de Produto
 Acesse nosso Backlog:
 
-- [BACKLOG.pdf](.misc/Backlog/BACKLOG.pdf)
+-Sprint 1: [BACKLOG_PRODUTO1.pdf](.misc/Documento/Backlog/produto1.pdf)
+-Sprint 2: [BACKLOG_PRODUTO2.pdf]()
+=Sprint 3: [BACKLOG_PRODUTO3.pdf]()
+
+---
+
+## 📋 Backlog da Sprint
+Acesse nosso Backlog:
+
+-Sprint 1: [BACKLOG_SPRINT1.pdf]()
+-Sprint 2: [BACKLOG_SPRINT2.pdf]()
+-Sprint 3: [BACKLOG_SPRINT3.pdf]()
 
 ---
 
@@ -31,7 +42,7 @@ Acesse nosso Backlog:
 | Sprint | Período | Documentação | Vídeo do Incremento |
 |--------|----------|--------------|----------------------|
 | Sprint 1 | 28/08 - 01/10 | [📄 Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [🎥 Vídeo](https://youtu.be/OJqbYAD24U8?si=e6Kiaabpx0eN0w8K) |
-| Sprint 2 | 02/10 - 29/10 | 🚧 Em andamento | 🚧 Em andamento |
+| Sprint 2 | 02/10 - 29/10 | [📄 Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [🎥 Vídeo]() |
 | Sprint 3 | 30/10 - 26/11 | 🚧 Em andamento | 🚧 Em andamento |
 
 ## 🛠 Tecnologias Utilizadas
@@ -104,16 +115,8 @@ Acesse nosso Backlog:
 
 ---
 
-## 📂 Documentação
-- [DOCUMENTAÇÃO](.misc/documentation/DOCUMENTACAO.pdf)
- 
----
-
 ### ✅ Checklist de DoR e DoD
-- [ ] DoR da Sprint 1  
-- [ ] DoD da Sprint 1  
-- [ ] DoR da Sprint 2  
-- [ ] DoD da Sprint 2  
+- [DoR e DoD](.misc/Documento/Dor_Dod/documento_dod_dor.pdf)  
 
 ---
 
