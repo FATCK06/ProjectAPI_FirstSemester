@@ -21,20 +21,20 @@ A **Secretaria Municipal de Planejamento Urbano de São José dos Campos** enfre
 ---
 
 ## 📋 Backlog de Produto
-Acesse nosso Backlog:
+Acesse nosso Backlog do Produto:
 
--Sprint 1: [BACKLOG_PRODUTO1.pdf](.misc/Documento/Backlog/produto1.pdf)
--Sprint 2: [BACKLOG_PRODUTO2.pdf]()
-=Sprint 3: [BACKLOG_PRODUTO3.pdf]()
+- Sprint 1: [BACKLOG_PRODUTO1.pdf](.misc/Documento/Backlog/produto1.pdf)  
+- Sprint 2: [BACKLOG_PRODUTO2.pdf]()  
+- Sprint 3: [BACKLOG_PRODUTO3.pdf]()
 
 ---
 
 ## 📋 Backlog da Sprint
-Acesse nosso Backlog:
+Acesse nosso Backlog da Sprint:
 
--Sprint 1: [BACKLOG_SPRINT1.pdf]()
--Sprint 2: [BACKLOG_SPRINT2.pdf]()
--Sprint 3: [BACKLOG_SPRINT3.pdf]()
+- Sprint 1: [BACKLOG_SPRINT1.pdf]()
+- Sprint 2: [BACKLOG_SPRINT2.pdf]()
+- Sprint 3: [BACKLOG_SPRINT3.pdf]()
 
 ---
 
