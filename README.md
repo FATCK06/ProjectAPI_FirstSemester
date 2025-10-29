@@ -40,16 +40,44 @@ Acesse nosso Backlog da Sprint:
 | Sprint | Período | Documentação | Vídeo do Incremento |
 |--------|----------|--------------|----------------------|
 | Sprint 1 | 28/08 - 01/10 | [📄 Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [🎥 Vídeo](https://youtu.be/OJqbYAD24U8?si=e6Kiaabpx0eN0w8K) |
-| Sprint 2 | 02/10 - 29/10 | [📄 Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [🎥 Vídeo]() |
+| Sprint 2 | 02/10 - 29/10 | [📄 Documentação](.misc/documentation/DOCUMENTACAO.pdf) | [🎥 Vídeo](https://youtu.be/IvSrpg2Gxx4?si=fGmW5Vi3_kb1kxqZ) |
 | Sprint 3 | 30/10 - 26/11 | 🚧 Em andamento | 🚧 Em andamento |
 
 ## 🛠 Tecnologias Utilizadas
-- HTML 5
-- CSS 3
-- PYTHON
-- COLAB
-- MYSQL
-- FIGMA
+
+<div align="center">
+
+### 🌐 Linguagens
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="60" height="60"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="60" height="60"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="60" height="60"/>
+
+---
+
+### 🗄️ Banco de Dados
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="60" height="60"/>
+
+---
+
+### ⚙️ Frameworks e Bibliotecas
+<!-- Flask logo branca -->
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original-wordmark.svg" alt="Flask" width="80" height="60" style="filter: brightness(0) invert(1);"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" alt="Streamlit" width="60" height="60"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" width="60" height="60"/>
+
+---
+
+### ☁️ Serviços em Nuvem
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" width="80" height="60"/>
+
+---
+
+### 🧰 Ferramentas
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-original.svg" alt="Google Colab" width="60" height="60"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width="60" height="60"/>
+
+</div>
+
 
 ---
 
