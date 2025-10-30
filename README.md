@@ -40,7 +40,7 @@ Acesse nosso Backlog da Sprint:
 | Sprint | Período | Documentação | Vídeo do Incremento |
 |--------|----------|--------------|----------------------|
 | Sprint 1 | 28/08 - 01/10 | [📄 Documentação](.misc/Documento/doc1.pdf) | [🎥 Vídeo](https://youtu.be/OJqbYAD24U8?si=e6Kiaabpx0eN0w8K) |
-| Sprint 2 | 02/10 - 29/10 | [📄 Documentação](.misc/documentation/) | [🎥 Vídeo](https://youtu.be/IvSrpg2Gxx4?si=fGmW5Vi3_kb1kxqZ) |
+| Sprint 2 | 02/10 - 29/10 | [📄 Documentação](.misc/Documento/Documento_sprint2.pdf) | [🎥 Vídeo](https://youtu.be/IvSrpg2Gxx4?si=fGmW5Vi3_kb1kxqZ) |
 | Sprint 3 | 30/10 - 26/11 | 🚧 Em andamento | 🚧 Em andamento |
 
 ## 🛠 Tecnologias Utilizadas
