@@ -30,9 +30,9 @@ Acesse nosso Backlog do Produto:
 ## 📋 Backlog da Sprint
 Acesse nosso Backlog da Sprint:
 
-- Sprint 1: [BACKLOG_SPRINT1.pdf]()
-- Sprint 2: [BACKLOG_SPRINT2.pdf]()
-- Sprint 3: [BACKLOG_SPRINT3.pdf]()
+- Sprint 1: [BACKLOG_SPRINT1.pdf](.misc/Documento/Backlog/backlogsprint1.pdf)
+- Sprint 2: [BACKLOG_SPRINT2.pdf](.misc/Documento/Backlog/backlogsprint2.pdf)
+- Sprint 3: [BACKLOG_SPRINT3.pdf](.misc/Documento/Backlog/backlogsprint3.pdf)
 
 ---
 
