@@ -1,0 +1,7 @@
+Ano,Populacao_Total_Estimada,Idosos_65mais_Percentual,Idosos_65mais_Absoluto,Indice_Envelhecimento,Criancas_0a14_Percentual,Demanda_UBS_Adicional,Demanda_Casa_Idoso_Adicional,Observacoes
+2022,697054,12.00,83647,62.48,18.00,0,0,Dados Census IBGE - Base de calculo
+2025,715000,13.50,96525,68.00,17.50,2,1,Crescimento moderado - Ampliar servicos geriatricos
+2027,725000,14.50,105125,73.00,17.00,3,1,Envelhecimento acelerado - Criar protocolos especializados
+2030,740000,16.00,118400,82.00,16.50,5,2,Ponto critico - Idosos ultrapassam 16% - Investimento alto necessario
+2032,750000,17.00,127500,90.00,16.00,7,2,Demanda crescente por geriatria especializada
+2035,765000,18.50,141525,100.00,15.50,10,3,Indice de envelhecimento = 100 - 1 idoso para cada crianca - Reestruturacao completa do sistema

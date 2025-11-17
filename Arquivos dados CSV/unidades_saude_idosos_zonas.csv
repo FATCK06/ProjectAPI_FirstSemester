@@ -1,0 +1,7 @@
+Regiao,Populacao_2022,Idosos_65mais_Estimativa,UBS_Existentes,Casa_do_Idoso,Cobertura_UBS_por_Idoso,Idosos_por_UBS,Deficit_Superavit_UBS,Necessidade_Casa_Idoso_Adicional,Necessidade_Atendimento_Geriatrico,Prioridade_Investimento
+Sul,237572,33259,15,1,Adequada,2217,Superavit,NAO,SIM - Ampliar servicos geriatricos,ALTA - Maior concentracao de idosos
+Leste,181463,21776,12,1,Adequada,1815,Equilibrado,NAO,Moderada - Servicos existentes adequados,MEDIA
+Centro,72401,7964,5,1,Boa,1593,Superavit,NAO,Baixa - Area comercial,BAIXA
+Oeste,64482,4509,6,0,Boa - Populacao jovem,752,Superavit,SIM - URGENTE,NAO - Populacao jovem,BAIXISSIMA para geriatria - ALTA para pediatria
+Sudeste,62541,5003,4,0,Insuficiente,1251,Deficit moderado,SIM - Recomendada,NAO - Populacao jovem,MEDIA - Expandir servicos basicos
+Norte,61780,7413,8,1,Adequada,927,Superavit,NAO,Moderada - Monitorar,MEDIA

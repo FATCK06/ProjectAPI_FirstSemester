@@ -1,0 +1,7 @@
+Regiao,Escolas_Municipais,Escolas_Estaduais,Escolas_Particulares,Bibliotecas_Escolares,Laboratorios_Informatica,Quadras_Esportivas,Internet_Banda_Larga,Acessibilidade,Situacao_Geral
+Sul,45,18,35,60,55,58,63,50,Infraestrutura completa e consolidada
+Leste,32,14,25,45,40,43,46,38,Infraestrutura adequada
+Centro,12,6,20,30,28,30,38,35,Infraestrutura excelente - Escolas bem equipadas
+Oeste,18,5,40,55,50,55,63,58,Melhor infraestrutura - Escolas particulares alto padrao
+Sudeste,15,4,15,25,20,23,34,28,Infraestrutura em desenvolvimento
+Norte,22,8,12,35,30,32,42,30,Infraestrutura adequada mas necessita expansao

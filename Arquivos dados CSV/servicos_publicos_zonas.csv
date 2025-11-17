@@ -1,0 +1,8 @@
+Regiao,UBS_Unidades_Basicas_Saude,Hospitais,UPA_Pronto_Atendimento,Escolas_Municipais,Escolas_Estaduais,Nivel_Atendimento,Renda_Media,Empregos_Percentual
+Sul,15,1,2,45,18,Bom,Media-Baixa,25.5
+Leste,12,0,1,32,14,Adequado,Media,18.2
+Centro,5,2,1,12,6,Excelente,Alta,35.8
+Oeste,6,0,0,18,5,Em expansao,Alta,12.3
+Sudeste,4,0,1,15,4,Em desenvolvimento,Media-Alta,5.8
+Norte,8,0,0,22,8,Adequado,Baixa,2.4
+Total_Municipio,50,3,5,144,55,Completo,Media,100.0

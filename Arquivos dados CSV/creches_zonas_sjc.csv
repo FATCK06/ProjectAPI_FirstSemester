@@ -1,0 +1,8 @@
+Regiao,Unidades_Educacao_Infantil,Tipo_Unidades,Demanda_Atual,Necessidade_Expansao,Observacoes
+Sul,35,EMEI CEDIN CECOI,Atendida - Fila Zero,NAO - Manter capacidade atual,Regiao consolidada com crescimento de apenas 1.77% - Populacao envelhecida
+Leste,28,EMEI CEDIN CECOI,Atendida - Fila Zero,BAIXA - Monitorar,Crescimento de 10.62% - Demanda estavel
+Centro,15,EMEI CEDIN CECOI,Atendida - Fila Zero,NAO - Capacidade suficiente,Area comercial com poucas residencias familiares
+Oeste,18,EMEI CEDIN CECOI,Crescendo rapidamente,SIM - PRIORIDADE ALTA,Crescimento de 56.65% - Bairros novos com familias jovens - Jardim Aquarius e Urbanova
+Sudeste,10,EMEI CEDIN CECOI,Demanda crescente,SIM - PRIORIDADE MEDIA,Crescimento de 36.55% - Area em expansao imobiliaria
+Norte,5,EMEI CEDIN CECOI,Atendida,BAIXA - Monitorar,Crescimento moderado de 4.69%
+Total_Municipio,111,Mix,Fila Zero desde 2024,Focar Oeste e Sudeste,80125 alunos na rede municipal em 2023

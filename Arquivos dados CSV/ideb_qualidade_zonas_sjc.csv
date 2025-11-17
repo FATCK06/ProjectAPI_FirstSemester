@@ -1,0 +1,8 @@
+Regiao,IDEB_Anos_Iniciais_Estimado,IDEB_Anos_Finais_Estimado,Taxa_Aprovacao,Taxa_Reprovacao,Taxa_Abandono,Qualidade_Infraestrutura,Qualidade_Corpo_Docente,Nivel_Geral_Ensino
+Sul,6.8,5.9,94.5,4.5,1.0,Boa,Bom,Acima da media municipal
+Leste,6.9,6.0,95.0,4.0,1.0,Boa,Bom,Acima da media municipal
+Centro,7.2,6.3,96.0,3.5,0.5,Excelente,Excelente,Melhor desempenho municipal
+Oeste,7.4,6.5,97.0,2.5,0.5,Excelente,Excelente,Melhor desempenho - Escolas particulares alto padrao
+Sudeste,6.7,5.8,94.0,5.0,1.0,Boa,Bom,Ligeiramente abaixo da media
+Norte,6.5,5.7,93.0,5.5,1.5,Adequada,Adequado,Necessita melhorias
+Media_Municipal,6.9,6.0,95.0,4.0,1.0,Boa,Bom,Entre as 5 melhores do Brasil
