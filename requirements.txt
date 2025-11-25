@@ -1,0 +1,8 @@
+flask
+streamlit
+pandas
+plotly
+folium
+geopandas
+shapely
+branca
