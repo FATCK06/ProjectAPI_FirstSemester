@@ -1,0 +1,38 @@
+section {
+    padding: 40px 0;
+    background-color: var(--color-base-0);
+    display: grid;
+    justify-items: center;
+}
+
+section h1 {
+
+    text-align: center;
+    max-width: 20ch;
+    text-align: center;
+    padding-bottom: 40px;
+    position: relative;
+    display: grid;
+}
+
+section h1::after {
+    content: "";
+    max-width: 100%;
+    height: 4px;
+    background-color: var(--color-support-yellow);
+    margin-top: 8px;
+}
+
+@media screen and (max-width: 920px) {
+    section {
+        padding: 40px 0 140px 0;
+    }
+
+    section nav ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 40px;
+        position: relative;
+    }
+}

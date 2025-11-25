@@ -1,0 +1,15 @@
+.banner {
+    display: grid;
+    width: 100%;
+    height: 600px;
+    background-image: url("../../img/banner/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 920px) {
+    .banner {
+        display: none;
+    }
+}

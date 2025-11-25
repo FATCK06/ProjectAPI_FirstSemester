@@ -1,0 +1,14 @@
+/* Itens de estilo global */
+@import url('../css/global/global.css');
+@import url('../css/global/colorPalette.css');
+@import url('../css/global/typography.css');
+@import url('../css/global/header.css');
+@import url('../css/global/footer.css');
+
+/* Item de estilo da main da página de início */
+@import url('../css/main/banner.css');
+@import url('../css/main/main.css');
+@import url('../css/main/section.css');
+
+/* Item de gráfico da página */
+@import url('../css/graphic/graphic.css');
